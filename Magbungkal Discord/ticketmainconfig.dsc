@@ -8,28 +8,32 @@ discord_ticket_config:
 
     ticket-close-msg: !close
     # where to send the transcript messages after closing
-    logging-channel: 1201242791670468748
+    logging-channel: 1210587391539028000
     ticket-close-button:
         # format for the discord button
         # change anything except the "id"
         id: discord_ticket_close
-        label: Close ticket
+        label: Close
         disabled: true
-        emoji: ❌
+        # emoji:
     # discord group/server id
     group-id: 1126475444837949500
+    # ticket active hours (24 hour format / gmt+8)
+    active-hours:
+        start: 10
+        end: 22
     # embedded messages for the different text responses
     # feel free to remove/add properties to each of em
     messages:
         main:
             title: Do you need any help?
             color: orange
-            description: Please select the area in which you require assistance! If you're not sure which category to put it under, go with "General Support".<n><n>Our staff team support hours are between (10:00 AM to 10:00) UTC+8 Asia/Singapore. Even while we are frequently accessible after these hours, responses might not come through until support hours restart.
+            description: If you needed any help, please considered creating a ticket down below and choose a category for what your concern related is.<n><n>Our staff team support hours are between (**10:00 AM** to **10:00 PM** UTC+8). Even while we are frequently accessible after these hours, responses might not come through until support hours restart.
             # image: URL
             # author_name: text
             # author_url: URL (requires author_name set)
             # author_icon_url: URL (requires author_name set)
-            footer: Magbungkal Support
+            footer: Magbungkal Support - play.magbungkal.net
             footer_icon: https://i.imgur.com/g3cM2l7.png
             thumbnail: https://i.imgur.com/g3cM2l7.png
             # timestamp: TimeTag
@@ -40,15 +44,25 @@ discord_ticket_config:
             author_name: Ticket has arrived!
             author_icon_url: https://i.imgur.com/g3cM2l7.png
             color: orange
-            #timestamp: <util.time_now.format>
+            #timestamp: <util.time_now.format_discord[R]>
             thumbnail: https://i.imgur.com/g3cM2l7.png
         ticket-close:
-            title: Support Ticket Closed!
-            color: orange
-            description: Your ticket was closed by a staff, the attached file contains a transcript of the messages on the channel.
+            author_name: Support Ticket Closed!
+            author_icon_url: https://i.imgur.com/g3cM2l7.png
+            #title: Support Ticket Closed!
+            color: lime
+            description: The attached file contains a transcript of the messages on the channel. If you still have any concerns please consider creating a ticket again!
             thumbnail: https://i.imgur.com/g3cM2l7.png
             footer: Support Tickets - play.magbungkal.net
+            #footer_icon: https://i.imgur.com/g3cM2l7.png
+            #timestamp: <util.time_now.format_discord[R]>
+        active-hours:
+            title: Support Hours
+            color: orange
+            description: Our staff team support hours are between (**10:00 AM** to **10:00 PM** GMT+8). Even while we are frequently accessible after these hours, responses might not come through until support hours restart.
+            footer: Magbungkal Support - play.magbungkal.net
             footer_icon: https://i.imgur.com/g3cM2l7.png
+            thumbnail: https://i.imgur.com/g3cM2l7.png
     category-placeholder: Ticket Category
     # categories for the ticket msg selector
     # create more categories as needed, they just
@@ -75,17 +89,17 @@ discord_ticket_config:
             # that's probably caused by discord's limit
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     # min_length: (Number)
                     # max_length: (Number)
                     style: short
                 issue:
-                    label: DESCRIBE YOUR ISSUE
+                    label: Describe your concern
                     is_required: true
                     style: paragraph
                 date_and_time:
-                    label: DATE (DD/MM/YYYY)
+                    label: Date
                     is_required: true
                     min_length: 8
                     max_length: 8
@@ -99,19 +113,19 @@ discord_ticket_config:
             channel-category: 1201213884992848002
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     style: short
                 issue:
-                    label: DESCRIBE YOUR ISSUE
+                    label: Describe your concern
                     is_required: true
                     style: paragraph
                 dop:
-                    label: DATE OF PURCHASE (DD/MM/YYYY)
+                    label: Date of Purchase
                     is_required: true
                     style: short
                 mop:
-                    label: MODE OF PAYMENT (GCash or PayPal)
+                    label: Mode of Payment (GCash or PayPal)
                     is_required: true
                     style: short
         player report:
@@ -123,19 +137,19 @@ discord_ticket_config:
             channel-category: 1201228940723900527
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     style: short
                 issue:
-                    label: OFFENDER USERNAME (ex. Tot4lly)
+                    label: Offender Username
                     is_required: true
                     style: paragraph
                 3:
-                    label: DATE (DD/MM/YYYY)
+                    label: Date
                     is_required: true
                     style: short
                 4:
-                    label: WHY ARE YOU REPORTING THIS PLAYER?
+                    label: Why are you reporting this player?
                     is_required: true
                     style: paragraph
         ban Appeal:
@@ -147,19 +161,19 @@ discord_ticket_config:
             channel-category: 1201228800277614663
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     style: short
                 issue:
-                    label: WHAT IS YOUR PUNISHMENT REASON?
+                    label: What is your punishment reason?
                     is_required: true
                     style: paragraph
                 3:
-                    label: DATE (DD/MM/YYYY)
+                    label: Date
                     is_required: true
                     style: short
                 4:
-                    label: WHY WE SHOULD UNBAN YOU?
+                    label: Why we should unban you?
                     is_required: true
                     style: paragraph
         Bug Report:
@@ -171,19 +185,19 @@ discord_ticket_config:
             channel-category: 1201230080375017622
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     style: short
                 issue:
-                    label: DESCRIBE THE BUG YOU HAVE ENCOUNTERED
+                    label: Describe the bug you've encountered
                     is_required: true
                     style: paragraph
                 3:
-                    label: HOW TO REPRODUCE THIS BUG?
+                    label: How to reproduce this bug?
                     is_required: true
                     style: paragraph
                 4:
-                    label: DATE (DD/MM/YYYY)
+                    label: Date
                     is_required: true
                     style: short
         Rewards Claim:
@@ -195,14 +209,14 @@ discord_ticket_config:
             channel-category: 1201228895068901527
             modal-forms:
                 ign:
-                    label: MINECRAFT USERNAME (ex. Aky0_)
+                    label: Your In-Game Name (IGN)
                     is_required: true
                     style: short
                 issue:
-                    label: WHAT REWARD ARE YOU REDEEMING?
+                    label: What reward are you redeeming?
                     is_required: true
                     style: paragraph
                 3:
-                    label: DATE (DD/MM/YYYY)
+                    label: Date
                     is_required: true
                     style: short
