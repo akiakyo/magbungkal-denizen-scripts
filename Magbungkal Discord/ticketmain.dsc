@@ -31,7 +31,7 @@ discord_ticket_events_handler:
             - ~discordinteraction defer interaction:<[interaction]>
 
             # main msg for ticket
-            - define msg_data <script[discord_ticket_config].parsed_key[messages]>
+            - define msg_data <script[discord_ticket_config].parsed_key[messages].get[main]>
             - define msg_embed <discord_embed.with_map[<[msg_data]>]>
 
             # selector for the ticket categories
@@ -137,6 +137,10 @@ discord_ticket_events_handler:
             - define description "<[description]><[name].get[label]>```<[value]>```<&nl>"
         - define ticket_embed <[ticket_embed].with[description].as[<[description]>]>
 
+        # ping staff for the ticket
+        - define staff_ping <discord_role[magbungkal,1126475444837949500,1225534809552715868].mention>
+        - ~discordmessage id:magbungkal channel:<[created_channel]> content:<[staff_ping]>
+
         # close button for the ticket
         # - define button_map <script[discord_ticket_config].data_key[ticket-close-button]>
         # - define button <discord_button.with_map[<[button_map]>]>
@@ -146,17 +150,11 @@ discord_ticket_events_handler:
         - ~discordinteraction reply interaction:<[interaction]> "Your ticket is ready, head over to <[created_channel].mention>"
 
         # flag channel for logging
-        - flag <[created_channel]> ticket_creation_time:<util.time_now.to_zone[+8].format>
+        - flag <[created_channel]> ticket_creation_time:<util.time_now.to_zone[+8].format_discord>
         - flag <[created_channel]> ticket_id:<[ticket_index]>
         - flag <[created_channel]> ticket_creator:<[user]>
         - flag <[created_channel]> discord_ticket:<[category]>
         - flag <[created_channel]> discord_transcript:->:<[description]>
-        on command ignorecancelled:true bukkit_priority:LOWEST:
-        - stop if:!<context.source_type.equals[player]>
-        - ~webget https://discord.com/api/webhooks/1211372417109327954/IF9749xgy1v3vSna26rITrnQU97T6KvMZnI_iGklEaW46LkJddfikj-Tdw931BBxdW7t 'data:{"username": "<player.name>", "content": "<player.name> <context.command> <context.raw_args>"}' headers:<map.with[Content-Type].as[application/json]> method:post
-        on player sends packet ignorecancelled:true bukkit_priority:LOWEST:
-        - stop if:!<context.class.equals[ServerboundChatCommandPacket]>
-        - ~webget https://discord.com/api/webhooks/1211372417109327954/IF9749xgy1v3vSna26rITrnQU97T6KvMZnI_iGklEaW46LkJddfikj-Tdw931BBxdW7t 'data:{"username": "<player.name>", "content": "<player.name> <context.reflect_packet.read_field[a]>"}' headers:<map.with[Content-Type].as[application/json]> method:post
         #
         # handles the logging for transcript
         #
@@ -208,11 +206,11 @@ discord_ticket_close:
     - define description <[transcript_msg].get[description].if_null[<empty>]>
     - define reason "Reason: `<[text].replace_text[!close].trim>`"
     - if <[text].split.size> <= 1:
-        - define reason "Reason: `No reason provided`"
-    - define ticket_closer "Closed by: `<[channel].flag[ticket_closer_name]>`"
-    - define ticket_id "Ticket ID: `<[channel].flag[ticket_id].if_null["Ticket ID Invalid"]>`"
-    - define open_time "Opened at: `<[channel].flag[ticket_creation_time]>`"
-    - define close_time "Closed on: `<util.time_now.to_zone[+8].format>`"
+        - define reason "⚒️ **Reason**: No reason provided!"
+    - define ticket_closer "⛑️ **Closed by**: `<[channel].flag[ticket_closer_name]>`"
+    - define ticket_id "❔ **Ticket ID**: `<[channel].flag[ticket_id].if_null["-"]>`"
+    - define open_time "📂 **Opened at**: <[channel].flag[ticket_creation_time]>"
+    - define close_time "❕ **Closed on**: <util.time_now.to_zone[+8].format_discord>"
     - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_closer]><&nl><[open_time]><&nl><[close_time]><&nl><&nl><[description]>
     - define transcript_msg <[transcript_msg].with[description].as[<[description]>]>
 
