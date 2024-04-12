@@ -1,5 +1,3 @@
-
-
 tps_alert:
     type: world
     debug: false
