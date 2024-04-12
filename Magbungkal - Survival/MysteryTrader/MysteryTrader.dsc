@@ -9,7 +9,7 @@ mystery_trader_command:
     - mtrader
     - mysteryshop
     - mshop
-    # permission: mysterytrader.open
+    permission: mysterytrader.open
     script:
     # initialize ( for first script upload )
     - if <server.flag[mysterytrader.items_to_sell].if_null[null]> == null:
@@ -99,7 +99,7 @@ mystery_trader_events_handler:
                     - stop
 
             - if <[player_currency]> < <[price]>:
-                - narrate "<red>You don't have enough <[currency_name]> to buy this item!"
+                - narrate "<&6><&l>SYSTEM <dark_gray>╏ <white>You don't have enough <[currency_name]> to buy this item!"
                 - inventory close
                 - stop
 
@@ -110,7 +110,7 @@ mystery_trader_events_handler:
             - define commands <[item_data].get[command]>
             - foreach <[commands]> as:command:
                 - execute as_server <[command].parsed>
-            - narrate "<green>You have successfully bought the item!"
+            - narrate "<&6><&l>SYSTEM <dark_gray>╏ <white>You have successfully bought the item!"
 
 
 # resets the mystery trader shop
@@ -122,6 +122,15 @@ mystery_trader_reset:
     - define items_count <script[mystery_trader_config].data_key[item-count]>
     - flag server mysterytrader.items_to_sell:<[items_data].keys.random[<[items_count]>]>
     - announce to_console "[Mystery Trader] Shop has been reset!"
+    - definemap embed_map:
+        author_name: Mystery Trader
+        author_icon_url: https://i.imgur.com/g3cM2l7.png
+        # title:
+        color: orange
+        description: Shop has been reset!
+        footer: Magbungkal [Survival]
+    - define embed <discord_embed.with_map[<[embed_map]>]>
+    - ~discordmessage id:magbungkal channel:1226947421175545986 <[embed]>
 
 
 mystery_trader_reset_time:
@@ -133,3 +142,12 @@ mystery_trader_reset_time:
     - define new_time <[time_now].add[<[reset_time]>]>
     - flag server mysterytrader.reset_time:<[new_time]>
     - announce to_console "[Mystery Trader] Reset time has been set to <[new_time].format>!"
+    - definemap embed_map:
+        author_name: Mystery Trader
+        author_icon_url: https://i.imgur.com/g3cM2l7.png
+        # title:
+        color: orange
+        description: Reset time has been set to <[new_time].format>!
+        footer: Magbungkal [Survival]
+    - define embed <discord_embed.with_map[<[embed_map]>]>
+    - ~discordmessage id:magbungkal channel:1226947421175545986 <[embed]>
