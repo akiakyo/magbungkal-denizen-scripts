@@ -1,3 +1,12 @@
+# » -------------------- «
+# ┋
+# ┋ M y s t e r y T r a d er
+# ┋
+# ┋ @author akiakyo, jefphensmirtz
+# ┋ @date 2024-04-13
+# ┋
+# » -------------------- «
+
 # command to open the shop
 mystery_trader_command:
     type: command
