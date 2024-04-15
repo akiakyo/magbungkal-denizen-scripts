@@ -173,6 +173,9 @@ reset_mshop:
   - resetmshop
   permission: mysterytrader.open
   script:
-     - execute as_server "tokenmanager remove <player.name> 1500"
-     - narrate "<&6><&l>SYSTEM <dark_gray>╏ <&f>Successfully paid <&b>1500 tokens <&f>to reset Mystery Trader."
-     - inject mystery_trader_reset
+     - if <placeholder[tm_tokens]> < 1500:
+       - narrate "<&6><&l>SYSTEM <dark_gray>╏ <&f>You don't have enough tokens to reset the Mystery Trader!"
+       
+     - else if:
+       - narrate "<&6><&l>SYSTEM <dark_gray>╏ <&f>Successfully paid <&b>1500 tokens <&f>to reset Mystery Trader."
+       - inject mystery_trader_reset
