@@ -7,7 +7,7 @@ staff_login_alert:
     - define player <player.name>
     - define ip_address <player.ip>
     - if <[player]> akiakyo && khrztpr && Morelonololicon && yata_ein && ellyiee && BembolG && MILKSHAKEEEE0619 && Tot4lly:
-      - define staff_ping <discord_user[magbungkal,1126475444837949500,1230833757951496223].mention>
+      - define staff_ping <discord_user[magbungkal,1126475444837949xxx,1230833757951496xxx].mention>
       - ~discordmessage id:magbungkal channel:<[channel]> content:<[staff_ping]>
       - definemap message_map:
           title: Someone log-in attempt your account!
