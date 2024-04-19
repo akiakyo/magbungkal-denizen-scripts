@@ -138,7 +138,7 @@ discord_ticket_events_handler:
         - define ticket_embed <[ticket_embed].with[description].as[<[description]>]>
 
         # ping staff for the ticket
-        - define staff_ping <discord_role[magbungkal,1126475444837949500,1225534809552715868].mention>
+        - define staff_ping <discord_role[magbungkal,1126475444837949xxx,1225534809552715xxx].mention>
         - ~discordmessage id:magbungkal channel:<[created_channel]> content:<[staff_ping]>
 
         # close button for the ticket
