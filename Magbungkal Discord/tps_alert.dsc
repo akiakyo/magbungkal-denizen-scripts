@@ -7,7 +7,7 @@ tps_alert:
            - define players <server.online_players.size>
            - define time <util.time_now.format_discord>
            - define entities <World[World].living_entities.size>
-           - define role <discord_role[magbungkal,1142516104518967397,1170242551526211644].mention>
+           - define role <discord_role[magbungkal,1142516104518967xxx,1170242551526211xxx].mention>
            - define online_ops <server.online_ops.size>
            - define uptime <server.current_tick.div[20].div[60].div[60].round>
            - define performance <server.recent_tps.get[1].div[20].mul[100].round_to[1]>
