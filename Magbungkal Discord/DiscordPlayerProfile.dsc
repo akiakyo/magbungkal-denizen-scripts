@@ -2,9 +2,8 @@ discord_player_profile_config:
     type: data
     messages:
         player-not-found:
-            title: Player not found
-            description: The player you are looking for is not online or does not exist
-            color: red
+            title: This player is not online or unknown
+            color: maroon
     # sets are the messages with the set of stats
     # each set will be sent as a different message
     sets:
@@ -16,26 +15,21 @@ discord_player_profile_config:
             # map for the embed message to follow
             # this is parsed so you can use placeholders
             message_format:
-                title: <player.name>
-                description: Player statistics
+                title: <placeholder[luckperms_primary_group_name]> <player.name>
+                description: **🌟 mcMMO Level**: `<placeholder[mcmmo_power_level]>`<n>**✨ Level**: `<player.xp_level>`<n>**😴 Afk**: `<placeholder[essentials_afk]>`<n>**💰 Balance**: `₱<placeholder[vault_eco_balance_commas]>`<n>**🕒 Playtime**: `<placeholder[statistic_time_played]>`<n>**📥 Votes**: `<placeholder[superbvote_votes]>`<n>**🪙 Tokens**: `<placeholder[tm_tokens_formatted]>`
                 thumbnail: https://minotar.net/helm/<player.name>/80.png
-                color: green
+                color: orange
             # these are the stats that will be shown
             # theyre added as fields in the embed message
             fields:
                 # you can name and add as many fields as you want
-                field_1:
-                    title: 📊Player Stats
-                    list:
-                        ✨Level: <player.xp_level>
-                        😴Afk: <placeholder[essentials_afk]>
-                        💰Balance: <player.money>
-                        🕒Playtime: <player.time_lived.in_hours>
-        set_2:
-            message_format:
-                title: Player Stats
-                color: green
-            fields:
+                # field_1:
+                #     title: 📊Player Stats
+                #     list:
+                #         ✨Level: <player.xp_level>
+                #         😴Afk: <placeholder[essentials_afk]>
+                #         💰Balance: <player.money>
+                #         🕒Playtime: <player.time_lived.in_hours>
                 basic_stat_field_1:
                     title: 📊Basic Stats
                     list:
@@ -44,12 +38,6 @@ discord_player_profile_config:
                         🎣Fishes Caught: <player.statistic[FISH_CAUGHT]>
                         ⛏️Blocks Mined: <player.statistic[MINE_BLOCK].if_null[0]>
                         🧟Mobs Killed: <player.statistic[MOB_KILLS]>
-        mcmmo_set:
-            message_format:
-                title: McMMO Stats
-                color: green
-                description: 🌟Power Level: <placeholder[mcmmo_power_level]>
-            fields:
                 combats_field:
                     title: 🪃Combat Skills
                     list:
@@ -74,4 +62,3 @@ discord_player_profile_config:
                         🪄Repair: <placeholder[mcmmo_level_repair]>
                         🪠Salvage: <placeholder[mcmmo_level_salvage]>
                         🪡Smelting: <placeholder[mcmmo_level_smelting]>
-
