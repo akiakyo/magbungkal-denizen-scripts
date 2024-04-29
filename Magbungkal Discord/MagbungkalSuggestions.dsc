@@ -1,3 +1,20 @@
+# » -------------------- «
+# ┋
+# ┋ D i s c o r d S u g g e s t i o n s
+# ┋
+# ┋ @author akiakyo
+# ┋ @date 2024-03-05
+# ┋
+# ┋ @commands 
+# ┋ - !suggest <suggestion>
+# ┋
+# ┋ - !approve <id> <reason>
+# ┋ - !deny <id> <reason>
+# ┋
+# » -------------------- «
+
+# Suggestion Configuration
+
 discord_suggestion_config:
     type: data
     # roles that can approve / deny suggestions
@@ -60,6 +77,7 @@ discord_suggestion_config:
         up: ⬆️
         down: ⬇️
 
+# Suggestion Handler
 
 discord_suggestion_events_handler:
     type: world
