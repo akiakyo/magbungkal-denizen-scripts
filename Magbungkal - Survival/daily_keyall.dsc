@@ -7,19 +7,28 @@ daily_keyall:
     - if <[online_players]> < 59:
       - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
       - run daily_keyall_bossbar_handler
+    # If server reached 60 players
     - if <[online_players]> == 60:
+      # If the daily keyall has a cooldown
       - if <server.has_flag[cooldown]>:
+         - announce "<&6><&l>System <&8>» <&f>Sorry, no keyall. Everyone must wait <&l><server.flag_expiration[cooldown].from_now.formatted>."
+         - announce "<&6><&l>System <&8>» <&f>Sorry, no keyall. Everyone must wait <&l><server.flag_expiration[cooldown].from_now.formatted>."
          - announce "<&6><&l>System <&8>» <&f>Sorry, no keyall. Everyone must wait <&l><server.flag_expiration[cooldown].from_now.formatted>."
          - stop
       # Discord message to Magbungkal
       - definemap embed_map:
             title: Keyall has give to everyone who are online - <server.online_players.size>/60
             color: orange
-      - flag server cooldown expire:6h
+      - flag server cooldown expire:12h
       - define embed <discord_embed.with_map[<[embed_map]>]>
       - ~discordmessage id:magbungkal channel:1182318611088552026 <[embed]>
       - ~discordmessage id:magbungkal channel:1182512909654438068 <[embed]>
+      # Announcement In-Game
       - announce "<&6><&l>System <&8>» <&f>Keyall has give to everyone who are online <&f><&l><server.online_players.size><&8>/<&f><&l>60"
+      - announce "<&6><&l>System <&8>» <&f>Keyall has give to everyone who are online <&f><&l><server.online_players.size><&8>/<&f><&l>60"
+      - announce "<&6><&l>System <&8>» <&f>Keyall has give to everyone who are online <&f><&l><server.online_players.size><&8>/<&f><&l>60"
+      - announce "<&6><&l>System <&8>» <&f>Keyall has give to everyone who are online <&f><&l><server.online_players.size><&8>/<&f><&l>60"
+      # Running daily keyall task
       - run daily_keyall_task
 
 daily_keyall_bossbar_handler:
@@ -60,4 +69,8 @@ daily_keyall_task:
       - execute as_server "crate key giveall ixora 1"
       - execute as_server "crate key giveall spawner 1"
       - execute as_server "crate key giveall cherry_blossom 1"
-      - execute as_Server "crate key giveall vote_key 1"
+      - execute as_Server "crate key giveall vote_key 12"
+      - execute as_server "crate key giveall spawner 1"
+      - execute as_Server "crate key giveall vote_key 12"
+      - execute as_server "crate key giveall spawner 1"
+      - execute as_Server "crate key giveall vote_key 12"
