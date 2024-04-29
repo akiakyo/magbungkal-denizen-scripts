@@ -1,3 +1,15 @@
+# » -------------------- «
+# ┋
+# ┋ D i s c o r d P l a y e r P r o f i l e
+# ┋
+# ┋ @author akiakyo
+# ┋ @date 2024-04-29
+# ┋
+# ┋ @commands 
+# ┋ - !profile <player> (they must be online)
+# ┋
+# » -------------------- «
+
 discord_player_profile_events:
     type: world
     debug: false
