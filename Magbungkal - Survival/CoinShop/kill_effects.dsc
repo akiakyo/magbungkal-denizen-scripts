@@ -1,0 +1,362 @@
+killeffects:
+  type: inventory
+  inventory: chest
+  debug: true
+  title: <&e><&l>Kill Effects
+  gui: true
+  definitions:
+    ?: <item[dAir]>
+    1: <item[tetris_smash]>
+    2: <item[tentacle_grasp]>
+    3: <item[shark_attack]>
+    4: <item[quick_sand]>
+    5: <item[plantfood_feasting]>
+    6: <item[imposter_instict]>
+    7: <item[arcade_gameover]>
+    8: <item[angelic_bless]>
+    9: <item[stone_crumble]>
+    10: <item[spectral_fade]>
+    11: <item[soundwave_disperse]>
+    12: <item[aqua_splash]>
+    13: <item[time_retrace]>
+    14: <item[smoky_disappearance]>
+    15: <item[reemergence]>
+    16: <item[paper_turns]>
+    17: <item[nebula_dissipation]>
+    18: <item[mirror_reflection_fade]>
+    19: <item[floral_bloom]>
+  slots:
+    - [?] [2] [3] [4] [5] [6] [7] [8] [?]
+    - [?] [11] [12] [13] [14] [15] [16] [17] [?]
+    - [?] [?] [?] [19] [9] [10] [?] [?] [?]
+
+kill_effects_handler:
+  type: world
+  debug: false
+  events:
+    on player drags in killeffects:
+    - determine cancelled
+    on player clicks in killeffects:
+    - if <context.item> == air:
+      - determine cancelled
+    # Tetris Smash
+    - define coins <placeholder[coinsengine_balance_raw_MagbungkalCoins]>
+    - if <context.item> == <item[tetris_smash]>:
+      - if <[coins]> >= 6780:
+        - clickable tentris_smash_event save:tentris_smash_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[tentris_smash_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Tentacle Grasp
+    - if <context.item> == <item[tentacle_grasp]>:
+      - if <[coins]> >= 6780:
+        - clickable tentacle_grasp_event save:tentacle_grasp_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[tentacle_grasp_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Shark Attack
+    - if <context.item> == <item[shark_attack]>:
+      - if <[coins]> >= 6780:
+        - clickable quick_sand_event save:quick_sand_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[quick_sand_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Plantfood Feasting
+    - if <context.item> == <item[plantfood_feasting]>:
+      - if <[coins]> >= 6780:
+        - clickable plantfood_feasting_event save:plantfood_feasting_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[plantfood_feasting_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Knockout KO
+    - if <context.item> == <item[knockout_ko]>:
+      - if <[coins]> >= 6780:
+        - clickable knockout_ko_event save:knockout_ko_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[knockout_ko_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Imposter instict
+    - if <context.item> == <item[imposter_instict]>:
+      - if <[coins]> >= 6780:
+        - clickable imposter_instict_event save:imposter_instict_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[imposter_instict_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Arcade Gameover
+    - if <context.item> == <item[arcade_gameover]>:
+      - if <[coins]> >= 6780:
+        - clickable arcade_gameover_event save:arcade_gameover_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[arcade_gameover_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Angelic Bless
+    - if <context.item> == <item[angelic_bless]>:
+      - if <[coins]> >= 6780:
+        - clickable angelic_bless_event save:angelic_bless_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[angelic_bless_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Stone Crumble
+    - if <context.item> == <item[stone_crumble]>:
+      - if <[coins]> >= 6780:
+        - clickable stone_crumble_event save:stone_crumble_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[stone_crumble_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Spectral Fade
+    - if <context.item> == <item[spectral_fade]>:
+      - if <[coins]> >= 6780:
+        - clickable spectral_fade_event save:spectral_fade_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[spectral_fade_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Sound Wave Disperse
+    - if <context.item> == <item[soundwave_disperse]>:
+      - if <[coins]> >= 6780:
+        - clickable soundewave_disperse_event save:soundewave_disperse_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[soundewave_disperse_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Aqua Splash
+    - if <context.item> == <item[aqua_splash]>:
+      - if <[coins]> >= 6780:
+        - clickable aqua_splash_event save:aqua_splash_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[aqua_splash_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Time Retrace
+    - if <context.item> == <item[time_retrace]>:
+      - if <[coins]> >= 6780:
+        - clickable time_retrace_event save:time_retrace_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[time_retrace_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Smoky Disapperance
+    - if <context.item> == <item[smoky_disappearance]>:
+      - if <[coins]> >= 6780:
+        - clickable smoky_disappearance_event save:smoky_disappearance_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[smoky_disappearance_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Reemergence
+    - if <context.item> == <item[reemergence]>:
+      - if <[coins]> >= 6780:
+        - clickable reemergence_event save:reemergence_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[reemergence_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Paper Turns
+    - if <context.item> == <item[paper_turns]>:
+      - if <[coins]> >= 6780:
+        - clickable paper_turns_event save:paper_turns_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[paper_turns_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Nebula Dissipation
+    - if <context.item> == <item[nebula_dissipation]>:
+      - if <[coins]> >= 6780:
+        - clickable nebula_dissipation_event save:nebula_dissipation_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[nebula_dissipation_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Mirror Reflection Fade
+    - if <context.item> == <item[mirror_reflection_fade]>:
+      - if <[coins]> >= 6780:
+        - clickable nebula_dissipation_event save:nebula_dissipation_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[nebula_dissipation_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+    # Floral Bloom
+    - if <context.item> == <item[floral_bloom]>:
+      - if <[coins]> >= 6780:
+        - clickable floral_bloom_event save:floral_bloom_event
+        - define text <list[<n><n><n><n><&0><&l>This key cost <&e>6,780 coins<&0><&l>, still want to purchase?<n><n><n>  <element[<&a><&l>[YES]].on_click[<entry[floral_bloom_event].command>]>    <&click[/buycoins].type[RUN_COMMAND]><&c><&l>[NO]<&end_click>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+      - if <[coins]> < 6780:
+        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
+        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l>6,780 coins <&0>to purchase this item.<n><n>Top up coins on our webstore: <element[<&6><&l><&n>magbungkal.net/store].custom_color[emphasis].on_hover[<&f>https://magbungkal.net/store].click_url[https://store.magbungkal.net]>]>
+        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
+
+
+# Events
+tentris_smash_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give <player.name> KillEffect_v1_16x-Scroll-TetrisSmash"
+tentacle_grasp_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-TentacleGrasp"
+quick_sand_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-Quicksand"
+plantfood_feasting_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "m'mm i give %player% KillEffect_v1_16x-Scroll-PlantfoodFeasting"
+knockout_ko_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-KnockoutKO"
+imposter_instict_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-ImposterInstinct"
+arcade_gameover_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-ArcadeGameover"
+angelic_bless_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v1_16x-Scroll-AngelicBless"
+stone_crumble_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v2-Scroll-StoneCrumble"
+spectral_fade_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v2-Scroll-SpectralFade"
+soundewave_disperse_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v2-Scroll-SoundWaveDisperse"
+aqua_splash_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v2-Scroll-AquaSplash"
+time_retrace_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-TimeRetrace"
+smoky_disappearance_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-SmokyDisappearance"
+reemergence_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-Reemergence"
+paper_turns_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-PaperTurns"
+nebula_dissipation_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-NebulaDissipation"
+floral_bloom_event:
+    type: task
+    debug: false
+    script:
+    - execute as_server "magbungkalcoins take <player.name> 6780"
+    - execute as_server "mm i give %player% KillEffect_v3-Scroll-FloralBloom"
