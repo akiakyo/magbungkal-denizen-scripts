@@ -21,8 +21,8 @@ coinsshop:
   definitions:
     ?: <item[dAir]>
   slots:
-    - [?] [?] [?] [?] [?] [?] [?] [?] [?]
-    - [?] [] [] [] [tripwire_hook[display_name=<&6><&l>KEYS]] [] [] [] [?]
+    - [?] [?] [?] [?] [ender_pearl[display=<&6><&l>Kill Effects]] [?] [?] [?] [?]
+    - [?] [?] [?] [book[display=<&6><&l>CE Items]] [tripwire_hook[display=<&6><&l>KEYS]] [nether_star[display=<&6><&l>Miscellanous (Others)]] [?] [?] [?]
     - [?] [?] [?] [?] [?] [?] [?] [?] [?]
 
 coinsshop_handler:
@@ -38,17 +38,9 @@ coinsshop_handler:
       - case 14:
          - inventory open destination:keyshop
          - playsound <player.location> sound:ENTITY_PHANTOM_FLAP pitch:1 volume:1
-
-# Command for exchange coin
-exchangecoin_command:
-  type: command
-  debug: false
-  name: exchangecoin
-  description: Give a player an Exchange Coin
-  usage: /exchangecoin
-  permission: denizen.admin
-  aliases:
-  - ecoin
-  script:
-  - give exchangecoin
-  - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You have been given an Exchange Coin"
+      - case 15:
+         - inventory open destination:others
+         - playsound <player.location> sound:ENTITY_PHANTOM_FLAP pitch:1 volume:1
+      - case 5:
+         - inventory open destination:killeffects
+         - playsound <player.location> sound:ENTITY_PHANTOM_FLAP pitch:1 volume:1
