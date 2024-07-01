@@ -4,16 +4,6 @@ dAir:
     material: black_stained_glass_pane
     display name: <&8>[]
 
-# Exchange Coin
-ExchangeCoin:
-    type: item
-    material: emerald
-    display name: <&a><&l>Exchange Token
-    lore:
-    - <empty>
-    - <&f>Use on <&l>/warp blackmarket
-    - <empty>
-
 # Keys
 ixora_key:
     type: item
