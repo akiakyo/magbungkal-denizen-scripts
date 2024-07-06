@@ -74,6 +74,19 @@ discord_ticket_events_handler:
             - flag <[channel]> ticket_closer_name:<[user].name>
             - inject discord_ticket_close
 
+        # check active-ticket hours
+        - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
+        - define start_hour <[active_ticket_hours].get[start]>
+        - define end_hour <[active_ticket_hours].get[end]>
+        - define current_time <util.time_now.to_zone[+8].hour>
+        - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
+            - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
+            - define embed_message <discord_embed.with_map[<[message_map]>]>
+            - if <server.has_flag[cooldown]>:
+               - stop
+            - flag server cooldown expire:5m
+            - discordmessage id:magbungkal reply:<[message]> <[embed_message]>
+            - stop
 
         after discord button clicked:
         - define button <context.button>
@@ -84,17 +97,17 @@ discord_ticket_events_handler:
         - define group <script[discord_ticket_config].data_key[group-id]>
 
         - if <[button].map.get[id]> == open_ticket:
-            # check active-ticket hours
-            - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
-            - define start_hour <[active_ticket_hours].get[start]>
-            - define end_hour <[active_ticket_hours].get[end]>
-            - define current_time <util.time_now.to_zone[+8].hour>
-            - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
-                - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
-                - define embed_message <discord_embed.with_map[<[message_map]>]>
-                - ~discordinteraction defer interaction:<[interaction]> ephemeral
-                - ~discordinteraction reply interaction:<[interaction]> <[embed_message]>
-                - stop
+            # # check active-ticket hours
+            # - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
+            # - define start_hour <[active_ticket_hours].get[start]>
+            # - define end_hour <[active_ticket_hours].get[end]>
+            # - define current_time <util.time_now.to_zone[+8].hour>
+            # - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
+            #     - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
+            #     - define embed_message <discord_embed.with_map[<[message_map]>]>
+            #     - ~discordinteraction defer interaction:<[interaction]> ephemeral
+            #     - ~discordinteraction reply interaction:<[interaction]> <[embed_message]>
+            #     - stop
 
             - define modal_forms <script[discord_ticket_config].data_key[modal]>
             - define rows <map>
@@ -110,12 +123,16 @@ discord_ticket_events_handler:
         - if <[button].map.get[id]> == discord_ticket_claim:
             - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
             - if !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+                - define no-permission_map <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
+                - define no-permission.msg <discord_embed.with_map[<[no-permission_map]>]>
+                - ~discordinteraction reply interaction:<[interaction]> <[no-permission.msg]>
+                - wait 3s
                 - ~discordinteraction delete interaction:<[interaction]>
                 - stop
             - define message_map <script[discord_ticket_config].parsed_key[messages].get[ticket-claim]>
             - define embed_message <discord_embed.with_map[<[message_map]>]>
-            - define embed_message <[embed_message].with[description].as[Ticket claimed by <[user].mention>]>
             - ~discordinteraction reply interaction:<[interaction]> <[embed_message]>
+
 
         #
         # generates the ticket channel
@@ -147,7 +164,7 @@ discord_ticket_events_handler:
         - define description "We will be with you as soon as possible for us to assist you.<n><&nl>"
         - foreach <[values]>:
             - define name <[modal_data].get[<[key]>]>
-            - define description "<[description]><[name].get[label]>```fix<n><[value]>```<&nl>"
+            - define description "<[description]><[name].get[label]><n>```<[value]>```<&nl>"
         - define ticket_embed <[ticket_embed].with[description].as[<[description]>]>
 
         # ping staff for the ticket
@@ -155,13 +172,22 @@ discord_ticket_events_handler:
         - define staff_ping <discord_role[magbungkal,<[group]>,<[ticket_role]>].mention>
         - ~discordmessage id:magbungkal channel:<[created_channel]> content:<[staff_ping]>
 
+        # ping the ticket creator
+        - define player_ping <[user].mention>
+        - ~discordmessage id:magbungkal channel:<[created_channel]> content:<[player_ping]>
+        - wait 3s
+        - adjust <[player_ping]> delete
+
         # claim button for the ticket
         - define button_map <script[discord_ticket_config].data_key[ticket-claim-button]>
         - define button <discord_button.with_map[<[button_map]>]>
 
         # info message for the user
         - ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]> rows:<[button]>
-        - ~discordinteraction reply interaction:<[interaction]> "Your ticket is ready, head over to <[created_channel].mention>"
+        - define ticket-ready <script[discord_ticket_config].parsed_key[messages].get[ticket-ready]>
+        - define ticket-ready_message <discord_embed.with_map[<[ticket-ready]>]>
+        # - ~discordinteraction reply interaction:<[interaction]> "Your ticket is ready, head over to <[created_channel].mention>"
+        - ~discordinteraction reply interaction:<[interaction]> <[ticket-ready_message]>
 
         # flag channel for logging
         - flag <[created_channel]> ticket_creation_time:<util.time_now.to_zone[+8].format_discord>
@@ -169,7 +195,6 @@ discord_ticket_events_handler:
         - flag <[created_channel]> discord_ticket:true
         - flag <[created_channel]> ticket_creator:<[user]>
         - flag <[created_channel]> discord_transcript:->:<[description]>
-
 
 discord_ticket_close:
     type: task
