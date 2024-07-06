@@ -43,30 +43,26 @@ discord_ticket_config:
             #timestamp: <util.time_now.format_discord[R]>
             thumbnail: https://i.imgur.com/g3cM2l7.png
         ticket-close:
-            author_name: Support Ticket Closed!
+            author_name: Ticket Closed
             author_icon_url: https://i.imgur.com/g3cM2l7.png
             #title: Support Ticket Closed!
-            color: lime
-            description: The attached file contains a transcript of the messages on the channel. If you still have any concerns please consider creating a ticket again!
-            thumbnail: https://i.imgur.com/g3cM2l7.png
-            footer: Support Tickets - play.magbungkal.net
+            color: yellow
+            footer: Tickets - Magbungkal.net
             #footer_icon: https://i.imgur.com/g3cM2l7.png
             #timestamp: <util.time_now.format_discord[R]>
         active-hours:
             title: ⚠️ Outside of support hours
             color: orange
-            description: Our staff team support hours are between (**10:00 AM** to **10:00 PM** GMT+8). Even while we are frequently accessible after these hours, responses might not come through until support hours restart.
-            footer: Magbungkal Support - play.magbungkal.net
-            footer_icon: https://i.imgur.com/g3cM2l7.png
-            thumbnail: https://i.imgur.com/g3cM2l7.png
+            description: Our staff team support hours are between (**10:00 AM** to **10:00 PM** GMT+8). <n><n>Current Time: **<util.time_now.to_zone[+8].format_discord>** UTC+8<n><n>Please consider using https://discord.com/channels/1126475444837949500/1182338159032401930 channel for now until support hours restart.
         ticket-claim:
-            title: Ticket Claimed!
+            title: Ticket claimed by <[user].name>
+            color: lime
+        no-permission:
+            title: Hey <[user].name>! You are not allowed to use this!
+            color: maroon
+        ticket-ready:
+            title: Your ticket is ready, head over to <[created_channel].mention>
             color: orange
-            author_icon_url: https://i.imgur.com/g3cM2l7.png
-            footer: Magbungkal Support - play.magbungkal.net
-            footer_icon: https://i.imgur.com/g3cM2l7.png
-            thumbnail: https://i.imgur.com/g3cM2l7.png
-
     ticket-claim-button:
         # format for the discord button
         style: secondary
