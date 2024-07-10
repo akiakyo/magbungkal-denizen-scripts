@@ -1,10 +1,4 @@
-# Gray Stained Glass == Air
-dAir:
-    type: item
-    material: black_stained_glass_pane
-    display name: <&8>[]
-
-# Keys
+# Survival Keys
 ixora_key:
     type: item
     material: tripwire_hook
@@ -59,6 +53,18 @@ cherry_blossom_key:
     - <&6>Right-click <&f>to purchase this item.
     - <&f>Open at <&l>/warp crates
     - <empty>
+
+# Gray Stained Glass == Air
+dAir:
+    type: item
+    material: black_stained_glass_pane
+    display name: <&8>[]
+
+# This is the back button (Do not touch)
+backButton:
+    type: item
+    material: red_stained_glass_pane
+    display name: <&c><&l>Back
 
 # Others
 cNickname:
@@ -128,6 +134,73 @@ legendary_key:
     - <&f>Price: <&e>1,800 Coins
     - <&6>Right-click <&f>to purchase this item.
     - <&f>Open at <&l>/warp crates
+    - <empty>
+
+# Tags
+UwU_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#FF99E3;to=#A20097]>(っ◔◡◔っ)
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
+    - <empty>
+
+queen_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#69004C;to=#FF6AF5]>♕ Queen ♕
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
+    - <empty>
+
+king_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#690000;to=#FF6A6A]>♔ King ♔
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
+    - <empty>
+
+captain_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#FFBF6A;to=#FFBF6A]>★ Captain ★
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
+    - <empty>
+
+empress_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#CCF5FF;to=#CCF5FF]>| Empress |
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
+    - <empty>
+
+emperor_tag:
+    type: item
+    material: name_tag
+    display name: <&gradient[from=#CCF5FF;to=#CCF5FF]>| Emperor |
+    lore:
+    - <empty>
+    - <&f>Price: <&e>4,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Use <&l>/tags <&f>to equip
     - <empty>
 
 # Kill Effects
@@ -429,4 +502,185 @@ floral_bloom:
     - <&f>Hold your item MAIN-HAND
     - <&f>Hold the scroll with your OFF-HAND
     - <&6>Right-click <&f>to bind the Kill Effect
+    - <empty>
+
+# CE Items
+blackscroll_ce:
+    type: item
+    material: ink_sac
+    display name: <&f><&l>Black Scroll
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,500 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Removes a random enchantment
+    - <&7>from an item and converts
+    - <&7>it into <&f>100% <&7>success book.
+    - <&f>Place scroll onto item to extract.
+    - <empty>
+
+mobtrak_ce:
+    type: item
+    material: slime_ball
+    display name: <&3><&l>MobTrak Creator
+    lore:
+    - <empty>
+    - <&f>Price: <&e>2,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Track how many mob kills
+    - <&7>you have with a weapon
+    - <&f>Drag ontop of another item to apply it.
+    - <empty>
+
+blocktrak_ce:
+    type: item
+    material: slime_ball
+    display name: <&3><&l>BlockTrak Creator
+    lore:
+    - <empty>
+    - <&f>Price: <&e>2,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Track how many blocks
+    - <&7>you break with a tool
+    - <&f>Drag ontop of another item to apply it.
+    - <empty>
+
+holywhitescroll_ce:
+    type: item
+    material: map
+    display name: <&6><&l>Holy White Scroll
+    lore:
+    - <empty>
+    - <&f>Price: <&e>6,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&e>A legendary reward that can be
+    - <&e>applied to armor/weapons,
+    - <&e>gives a <&l>100% chance <&e>of not losing
+    - <&e>the blessed item on death.
+    - <&f>Drag ontop of another item to apply it.
+    - <empty>
+
+soultracker_ce:
+    type: item
+    material: paper
+    display name: <&f><&l>Soul Tracker
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Apply to weapons to start
+    - <&f>tracking souls collected from kills.
+    - <&f>Drag ontop of another item to apply it.
+    - <empty>
+
+statcreator_ce:
+    type: item
+    material: magma_cream
+    display name: <&e><&l>StatTrak Creator
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,600 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Track how many kills
+    - <&7>you have with a weapon.
+    - <&f>Drag ontop of another item to apply it.
+    - <empty>
+
+transmog_ce:
+    type: item
+    material: paper
+    display name: <&c><&l>Transmog Scroll
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,600 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Organizes enchants by <&e><&n>rarity <&7>on item.
+    - <&7>and adds the <&d>lore <&b>count <&7>to name.
+    - <&e><&o>Place scroll on item to apply.
+    - <empty>
+
+whitescroll_ce:
+    type: item
+    material: map
+    display name: <&f><&l>White Scroll
+    lore:
+    - <empty>
+    - <&f>Price: <&e>3,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&f>Prevents an item from being destroyed
+    - <&f>due to a failed Enchantment Book.
+    - <&e><&o>Place scroll on item to apply
+    - <empty>
+
+armorenchantmentorb_ce:
+    type: item
+    material: ender_eye
+    display name: <&6><&l>Armor Enchantment Orb <&6>[<&a><&n>10<&6>]
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,900 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <empty>
+    - <&a>100% Success Rate
+    - <empty>
+    - <&6>+4 Enchantment Slots
+    - <&6>10 Max Enchantment Slots
+    - <empty>
+    - <&e>Increases the # of enchantment
+    - <&e>slots on a piece of an armor by 4,
+    - <&e>up to a maximum of 10
+    - <&7>Drag n' Drop onto an item to apply.
+    - <empty>
+
+toolenchantmentorb_ce:
+    type: item
+    material: ender_eye
+    display name: <&6><&l>Tool Enchantment Orb <&6>[<&a><&n>10<&6>]
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,900 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <empty>
+    - <&a>100% Success Rate
+    - <empty>
+    - <&6>+4 Enchantment Slots
+    - <&6>10 Max Enchantment Slots
+    - <empty>
+    - <&e>Increases the # of enchantment
+    - <&e>slots on a piece of an tool by 4,
+    - <&e>up to a maximum of 10
+    - <&7>Drag n' Drop onto an item to apply.
+    - <empty>
+
+weaponenchantmentorb_ce:
+    type: item
+    material: ender_eye
+    display name: <&6><&l>Weapon Enchantment Orb <&6>[<&a><&n>10<&6>]
+    lore:
+    - <empty>
+    - <&f>Price: <&e>1,900 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <empty>
+    - <&a>100% Success Rate
+    - <empty>
+    - <&6>+4 Enchantment Slots
+    - <&6>10 Max Enchantment Slots
+    - <empty>
+    - <&e>Increases the # of enchantment
+    - <&e>slots on a piece of an weapon by 4,
+    - <&e>up to a maximum of 10
+    - <&7>Drag n' Drop onto an item to apply.
+    - <empty>
+
+fishtrak_ce:
+    type: item
+    material: firework_star
+    display name: <&b><&l>FishTrak Creator
+    lore:
+    - <empty>
+    - <&f>Price: <&e>2,000 Coins
+    - <&6>Right-click <&f>to purchase this item.
+    - <&7>Track how many fish you catch
+    - <&7>with a fishing rod.
+    - <&f>Drag ontop of another item to apply it.
     - <empty>
