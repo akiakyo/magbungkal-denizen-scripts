@@ -67,7 +67,6 @@ player_logger_config:
         - bitch
         - idiot
         - moron
-        - nigger
         - tangina
         - yawa
         - bobo
