@@ -1,3 +1,12 @@
+# |» -------------------- «
+# | D I S C O R D  A U T O  M O D E R A T I O N
+#  @author akiakyo
+#  @date 2024-07-27
+#  @note:
+#  - Change the group with your Server ID
+#  - Change the channel with your #discord-logs channel
+# |» -------------------- «
+
 DiscordAutoMod:
     type: world
     events:
