@@ -20,7 +20,7 @@ MagbungkalDiscordLogs:
       
       # discord message modified logs
        after discord message modified:
-        - define old.message <context.old_message>
+        - define old.message <context.old_message.text>
         - define new.message <context.new_message>
         - define new.text <[new.message].text>
         - define channel <context.channel>
