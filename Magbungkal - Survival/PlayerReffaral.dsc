@@ -35,9 +35,13 @@ PlayerRefferalCommand:
 
     - flag player already_reffered
     - execute as_server "magbungkalcoins give <[args].get[1]> 2500"
+    - execute as_server "magbungkalcoins give <[player].name> 1250"
+    - execute as_server "money give <[player].name> 100000"
     - execute as_server "money give <[args].get[1]> 200000"
+    - execute as_server "etoken 15 <[player].name>"
     - execute as_server "etoken 30 <[args].get[1]>"
-    - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You reffered <[args].get[1]>"
+    - wait 1t
+    - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You recieved ₱100,000, 1,250 Coins, and 15 Exchange Tokens for reffering <&l><[args].get[1].to_uppercase>"
 
     - define random.int.000.9 <util.random.int[000].to[9]>
     - define random.int.000.999 <util.random.int[000].to[99]>
