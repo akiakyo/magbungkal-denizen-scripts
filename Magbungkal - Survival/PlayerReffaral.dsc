@@ -1,8 +1,10 @@
 PlayerRefferalCommand:
     type: command
-    debug: false
+    debug: true
     name: refferer
     usage: /refferer [playerName]
+    aliases:
+    - reffer
     description: Refferer Command
     tab completions:
       1: [playerName]
@@ -17,6 +19,10 @@ PlayerRefferalCommand:
 
     - if <[refferer.name]> == <[player]>:
        - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You can't refferer your self!"
+       - stop
+
+    - if <[player].statistic[play_one_minute]> < 60:
+       - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You needed to play 60 minutes to reffer a player!"
        - stop
 
     - if <[refferer.name]> == null:
