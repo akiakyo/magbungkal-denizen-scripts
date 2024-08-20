@@ -13,7 +13,7 @@ announcement_cmd:
   - bcast
   script:
      - announce <empty>
-     - announce "  <&6><&l><context.raw_args>"
+     - announce "<&8><&l>[<&6><&l>!<&8><&l>] <&f><context.raw_args>"
      - announce <empty>
      # Discord announce
      - discordmessage id:magbungkal channel:1182512909654438068 <context.raw_args>
@@ -24,6 +24,7 @@ auto_announce:
     debug: false
     events:
         on system time minutely:
+        - playsound <server.online_players> sound:UI_BUTTON_CLICK pitch:1 volume:0.5
         - random:
            - actionbar "<&6><&l>TIPS: <&f>If you enjoy our server, consider to <&6><&l>/vote <&f>and obtain 1 Vote Key and 3 Coins!" targets:<server.online_players>
            - actionbar "<&6><&l>TIPS: <&f>Need help? Create at ticket on <&9><&l>/discord" targets:<server.online_players>
@@ -46,14 +47,5 @@ auto_announce:
            - actionbar "<&6><&l>TIPS: <&f>Is fishing is too boring for you? Check <&6><&l>/fish" targets:<server.online_players>
            - actionbar "<&6><&l>TIPS: <&f>Is mining is too boring for you? Check <&6><&l>/mine" targets:<server.online_players>
            - actionbar "<&6><&l>TIPS: <&f>Do you have any old crate keys? Open them at <&6><&l>/warp hallofcrates" targets:<server.online_players>
-
-      # - "&fVote for us! By using &l/vote &fto obtain free rewards!"
-      # - "&fJoin our discord! To be aware of our latest announcements and updates!"
-      # - "&fWant to earn money? type &l/economy"
-      # - "&fType &l/wild&f, to start your own adventure!"
-      # - "&fType &l/rankup&f, check &l/ranks &fand achieve the highest rank!"
-      # - "&fTry our Custom Enchantments! By using &l/ce &for &l/warp CE"
-      # - "&fDid you know you can buy too on &l/tokenshop&f?"
-      # - "&fDid you know you can earn tokens by answering Chat Games?"
-      # - "&fDid you know you can earn tokens by climbing leaderboards?"
-      # - "&fDid you like our server? Donate us by purchasing anything on &l/store"
+           - actionbar "<&6><&l>TIPS: <&f>Link your discord account to our server for exclusive rewards! <&9><&l>/discord" targets:<server.online_players>
+           - actionbar "<&6><&l>TIPS: <&f>Claim your daily rewards now <&6><&l>/daily" targets:<server.online_players>
