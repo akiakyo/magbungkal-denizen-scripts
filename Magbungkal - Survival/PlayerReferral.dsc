@@ -13,6 +13,7 @@ PlayerRefferalCommand:
     - define args <context.args>
     - define refferer.name <server.match_offline_player[<[args].get[1]>].if_null[null]>
     - define player <player>
+    - define playtime <placeholder[statistic_time_played:hours]>
 
     - if <[args].size> != 1:
         - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>Hey! Invalid command usage; proper usage is <&6>/referrer [playerName]"
@@ -22,7 +23,7 @@ PlayerRefferalCommand:
        - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You can't refferer your self!"
        - stop
 
-    - if <[player].statistic[play_one_minute]> < 60:
+    - if <[playtime]> <= 60:
        - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You needed to play 60 minutes to reffer a player!"
        - stop
 
