@@ -17,5 +17,3 @@ DailyRewardsCommand:
         - define text <list[<&0><n><n><&l>Hey <[player].name><&0>,<n><n><&0>You can claim again in <&l><[daily_reward.cooldown]><n><n><&0>Did you appreciate what you get today :D<n><n>Your welcome!]>
         - adjust <[player]> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
         - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
-
-    - flag <[player]> daily_reward expire:24h
