@@ -20,6 +20,7 @@ DailyRewardsGUIHandler:
     on player clicks in dailyrewardsgui:
     - if <context.item> == air:
       - determine cancelled
+    - define player <player>
     - if <context.item> == <item[dailyrewardsrandomchest]>:
       - define coins.reward.3d <script[dailyrewardsdata].parsed_key[coins].get[3d]>
       - define coins.reward.7d <script[dailyrewardsdata].parsed_key[coins].get[7d]>
@@ -98,3 +99,5 @@ DailyRewardsGUIHandler:
          - execute as_server " <[31d.rewards]> "
          - execute as_server " <[random-key.30d]> "
          - inventory close
+
+      - flag <[player]> daily_reward expire:24h
