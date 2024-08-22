@@ -8,7 +8,7 @@ PlayerRefferalCommand:
     - referral
     description: Refferer Command
     tab completions:
-      1: [playerName]
+      1: <server.online_players.parse[name]>
     script:
     - define args <context.args>
     - define refferer.name <server.match_offline_player[<[args].get[1]>].if_null[null]>
