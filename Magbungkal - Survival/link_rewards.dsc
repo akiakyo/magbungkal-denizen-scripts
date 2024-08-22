@@ -4,6 +4,8 @@ link_reward:
     usage: /linkreward [player]
     description: Gets the UUID of a player.
     permission: denizen.admin
+    tab completions:
+      1: <server.online_players.parse[name]>
     permission message: <&6><&l>System <&8>» <&f>Hey! You don't have permission to use this command.
     script:
     - if <context.args.size> != 1:
