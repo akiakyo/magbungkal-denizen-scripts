@@ -13,7 +13,7 @@ PlayerRefferalCommand:
     - define args <context.args>
     - define refferer.name <server.match_offline_player[<[args].get[1]>].if_null[null]>
     - define player <player>
-    - define playtime <placeholder[statistic_time_played:hours]>
+    - define playtime <placeholder[statistic_time_played:days]>
 
     - if <[args].size> != 1:
         - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>Hey! Invalid command usage; proper usage is <&6>/referrer [playerName]"
@@ -23,8 +23,8 @@ PlayerRefferalCommand:
        - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You can't refferer your self!"
        - stop
 
-    - if <[playtime]> <= 60:
-       - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You needed to play 60 minutes to reffer a player!"
+    - if <[playtime]> != 1:
+       - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You needed to play 1 day to reffer a player!"
        - stop
 
     - if <[refferer.name]> == null:
@@ -45,6 +45,14 @@ PlayerRefferalCommand:
     - wait 1t
     - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You recieved ₱100,000, 1,250 Coins, and 15 Exchange Tokens for referring <&l><[args].get[1].to_uppercase>"
     - execute as_server "msg <[args].get[1]> <&f>You have been referred by <&l><[player].name>"
+
+    - define at <player.location.add[0,3,0]>
+    - define quantity 20
+    - define data 1
+    - define offset 0.0
+
+    - playeffect effect:wax_off at:<[at]> quantity:<[quantity]> data:<[data]> offset:<[offset]> targets:<[player]>
+    - playeffect effect:wax_on at<[at]> quantity:<[quantity]> data:<[data]> offset:<[offset]> targets:<[args].get[1]>
 
     - define random.int.000.9 <util.random.int[000].to[9]>
     - define random.int.000.999 <util.random.int[000].to[99]>
