@@ -1,5 +1,6 @@
 MagbungkalDiscordLogs:
     type: world
+    debug: false
     events:
     # discord message deleted logs
        after discord message deleted:
@@ -37,12 +38,14 @@ MagbungkalDiscordLogs:
         - ~discordmessage id:magbungkal channel:1263705307733823533 <[embed]>
 
       # discord role changes log
-       on discord user role changes:
-        - define old.roles <context.old_roles>
+       after discord user role changes:
         - define new.roles <context.new_roles>
+        - define parsed.new.roles <[new.roles].parse[name].replace_text[li@].with[].replace_text[|].with[]>
         - define user <context.user>
         - define added.roles <context.added_roles>
+        - define parsed.added.roles <[added.roles].parse[name].replace_text[li@].with[].replace_text[|].with[]>
         - define removed.roles <context.removed_roles>
+        - define parsed.removed.roles <[removed.roles].parse[name].replace_text[li@].with[].replace_text[|].with[]>
         - define avatar <[user].avatar_url>
         - define time <util.time_now.to_zone[+8].format_discord>
         - define group <context.group>
@@ -51,7 +54,7 @@ MagbungkalDiscordLogs:
               thumbnail: <[avatar]>
               title: User role changes
               color: gray
-              description: "<[user].mention> ROLE UPDATED<n>**```[New Role Added] <[added.roles]>```<n>```[Removed Roles] <[removed.roles]>```<n>```[Old Roles] <[old.roles]>```**<n>**[Time] <util.time_now.to_zone[+8].format_discord>**"
+              description: "<[user].mention> ROLE UPDATED<n>**```[New Role Added] <[parsed.added.roles]>```<n>```[Removed Roles] <[parsed.removed.roles]>```<n>**<n>**[Time] <util.time_now.to_zone[+8].format_discord>**"
         - define embed <discord_embed.with_map[<[message_map]>]>
         - ~discordmessage id:magbungkal channel:1263705307733823533 <[embed]>
 
@@ -67,7 +70,7 @@ MagbungkalDiscordLogs:
               thumbnail: <[avatar]>
               title: User leaves
               color: green
-              description: "<[user].mention> has leaved on <[group.name].to_uppercase>"
+              description: "<[user].mention> has leaved on <[group.name].to_uppercase> (Name: `<[user].name>` ID: `<[user].id>` Discriminator: `<[user].discriminator>`) Date: <[time]>"
         - define embed <discord_embed.with_map[<[message_map]>]>
         - ~discordmessage id:magbungkal channel:1263705307733823533 <[embed]>
 
@@ -83,7 +86,7 @@ MagbungkalDiscordLogs:
               thumbnail: <[avatar]>
               title: User joins
               color: green
-              description: "<[user].mention> has joined on <[group.name].to_uppercase>"
+              description: "<[user].mention> has joined on <[group.name].to_uppercase> (Name: `<[user].name>` ID: `<[user].id>` Discriminator: `<[user].discriminator>`) Date: <[time]>"
         - define embed <discord_embed.with_map[<[message_map]>]>
         - ~discordmessage id:magbungkal channel:1263705307733823533 <[embed]>
 
