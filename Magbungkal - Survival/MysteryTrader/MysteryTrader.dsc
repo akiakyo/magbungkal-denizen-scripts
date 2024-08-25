@@ -19,7 +19,7 @@ mystery_trader_command:
     - mysteryshop
     - mshop
     permission: mysterytrader.open
-    permission message: <&6><&l>SYSTEM <dark_gray>╏ <white>Mystery Shop is currently on maintenance.
+    permission message: <&8><&l>[<&6><&l>!<&8><&l>] <white>Mystery Shop is currently on maintenance.
     script:
     # initialize ( for first script upload )
     - if <server.flag[mysterytrader.items_to_sell].if_null[null]> == null:
@@ -37,6 +37,7 @@ mystery_trader_inventory:
     # a custom gui through fonts
     title: Mystery Trader
     inventory: chest
+    size: 54
     gui: true
     procedural items:
     - define inventory <list>
@@ -72,6 +73,9 @@ mystery_trader_inventory:
         ?: question_mark
     slots:
     - [a] [a] [a] [a] [a] [a] [a] [a] [a]
+    - [a] [] [] [] [] [] [] [] [a]
+    - [a] [] [] [] [] [] [] [] [a]
+    - [a] [] [] [] [] [] [] [] [a]
     - [a] [] [] [] [] [] [] [] [a]
     - [a] [a] [a] [a] [?] [a] [a] [a] [a]
 
@@ -110,7 +114,7 @@ mystery_trader_events_handler:
                     - stop
 
             - if <[player_currency]> < <[price]>:
-                # - narrate "<&6><&l>SYSTEM <dark_gray>╏ <white>You don't have enough <[currency_name]> to buy this item!"
+                # - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <white>You don't have enough <[currency_name]> to buy this item!"
                 - inventory close
                 - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
                 - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have enough <&l><[currency_name]> <&0>to purchase this item.<n><n>Top up tokens on our webstore: <element[<&6><&l><&n>store.magbungkal.net].custom_color[emphasis].on_hover[<&f>Click to visit the store.].click_url[https://store.magbungkal.net]>]>
@@ -124,7 +128,7 @@ mystery_trader_events_handler:
             - define commands <[item_data].get[command]>
             - foreach <[commands]> as:command:
                 - execute as_server <[command].parsed>
-            - narrate "<&6><&l>MYSTERY TRADER <dark_gray>╏ <white>You have successfully bought the item!"
+            - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <white>You have successfully bought the item!"
 
 
 # resets the mystery trader shop
@@ -179,16 +183,14 @@ reset_mshop:
   - resetmshop
   permission: mysterytrader.open
   script:
-     - if <placeholder[tm_tokens]> < 1500:
-       - narrate "<&6><&l>MYSTERY TRADER <dark_gray>╏ <&f>You don't have enough tokens to reset the Mystery Trader!"
+     - if <placeholder[tm_tokens]> < 2500:
+       - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>You don't have enough coins to reset the Mystery Trader!"
        - playsound <player.location> sound:BLOCK_BELL_USE pitch:1 volume:1
        - define text <list[<n><n><n><&0>Hey <player.name>!<n><n>You do not have <&l>1500 tokens <&0>to reset the Mystery Trader!<n><n>Top up tokens on our webstore: <element[<&6><&l><&n>store.magbungkal.net].custom_color[emphasis].on_hover[<&f>Click to visit the store].click_url[https://store.magbungkal.net]>]>       
        - adjust <player> show_book:written_book[book_pages=<[text]>;book_title=nan;book_author=nan]
 
-     - else if <placeholder[tm_tokens]> > 1500:
-       - narrate "<&6><&l>MYSTERY TRADER <dark_gray>╏ <&f>Successfully paid <&b>1500 tokens <&f>to reset Mystery Trader."
-       - execute as_server "tokenmanager remove <player.name> 1500"
-       - execute as_server "bcast <player.name> reset the Mystery Shop"
-       - execute as_server "bcast <player.name> reset the Mystery Shop"
-       - execute as_server "bcast <player.name> reset the Mystery Shop"
+     - else if <placeholder[coinsengine_balance_raw_MagbungkalCoins]> > 2500:
+       - narrate "<&8><&l>[<&6><&l>!<&8><&l>] <&f>Successfully paid <&e>1500 coins <&f>to reset Mystery Trader."
+       - execute as_server "magbungkalcoins take <player.name> 1500"
+       - execute as_server "announce <player.name> reset the Mystery Shop"
        - inject mystery_trader_reset
