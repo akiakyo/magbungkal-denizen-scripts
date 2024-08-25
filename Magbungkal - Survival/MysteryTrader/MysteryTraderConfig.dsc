@@ -4,1203 +4,1203 @@ mystery_trader_config:
     # if you want to add more increase the
     # slots at "mystery_trader_inventory" script
     # or erase some of its filler "air" items
-    item-count: 7
+    item-count: 28
     # items to sell
     shop:
         wufu_wang_sword:
             item: wufu_wang_sword
-            price: 4750
+            price: 14750
             # 5000 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 4750
+            - magbungkalcoins take <player.name> 14750
             - o give <player.name> wukong_animated-sword 1
         wufu_wang_spear:
             item: wufu_wang_spear
-            price: 4750
+            price: 14750
             # 5000 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 4750
+            - magbungkalcoins take <player.name> 14750
             - o give <player.name> wukong_animated-spear 1
         wufu_wang_halberd:
             item: wufu_wang_halberd
-            price: 4650
+            price: 14650
             # 5000 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 4650
+            - magbungkalcoins take <player.name> 14650
             - o give <player.name> wukong_animated-halberd 1
         wufu_wang_axe:
             item: wufu_wang_axe
-            price: 3800
+            price: 11800
             # 4000 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> wukong_animated-axe 1
         wufu_wang_bow:
             item: wufu_wang_bow
-            price: 3325
-            # 3500 - 5%
+            price: 11325
+            # 13500 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3325
+            - magbungkalcoins take <player.name> 11325
             - o give <player.name> wukong_animated-bow 1
         wufu_wang_pickaxe:
             item: wufu_wang_pickaxe
-            price: 2250
+            price: 12250
             # 2500 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2250
+            - magbungkalcoins take <player.name> 12250
             - o give <player.name> wukong_animated-pickaxe 1
         wufu_wang_hoe:
             item: wufu_wang_hoe
-            price: 1760
+            price: 11760
             # 2000 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1760
+            - magbungkalcoins take <player.name> 11760
             - o give <player.name> wukong_animated-hoe 1
         wufu_wang_shovel:
             item: wufu_wang_shovel
-            price: 1350
+            price: 11350
             # 1500 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1350
+            - magbungkalcoins take <player.name> 11350
             - o give <player.name> wukong_animated-shovel 1
         wufu_wang_fishing_rod:
             item: wufu_wang_fishing_rod
-            price: 1400
+            price: 11400
             # 1750 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1400
+            - magbungkalcoins take <player.name> 11400
             - o give <player.name> wukong_animated-fishing_rod 1
         wufu_wang_crossbow:
             item: wufu_wang_crossbow
-            price: 2375
+            price: 12375
             # 2500 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2375
+            - magbungkalcoins take <player.name> 12375
             - o give <player.name> wukong_animated-crossbow 1
         kieran_sword:
             item: kieran_sword
-            price: 3255
-            # 3500 - 7%
+            price: 13255
+            # 13500 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3255
+            - magbungkalcoins take <player.name> 13255
             - o give <player.name> dragonstone_sword 1
         kieran_bow:
             item: kieran_bow
-            price: 3150
-            # 3500 - 10%
+            price: 13150
+            # 13500 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3150
+            - magbungkalcoins take <player.name> 13150
             - o give <player.name> dragonstone_bow 1
         kieran_dagger:
             item: kieran_dagger
-            price: 1487
+            price: 11487
             # 1750 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1487
+            - magbungkalcoins take <player.name> 11487
             - o give <player.name> dragonstone_dagger 1
         # kieran_shield:
         #     item: kieran_shield
-        #     price: 800
+        #     price: 11800
         #     # 1000 - 20%
         #     currency: placeholder
-        #     currency-name: Token
-        #     placeholder: tm_tokens
+        #     currency-name: Coins
+        #     placeholder: coinsengine_balance_raw_MagbungkalCoins
         #     command:
-        #     - tokenmanager remove <player.name> 800
+        #     - magbungkalcoins take <player.name> 11800
         #     - o give <player.name> dragonstone_shield 1
         kieran_spear:
             item: kieran_spear
-            price: 1740
+            price: 11740
             # 2000 - 13%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1740
+            - magbungkalcoins take <player.name> 11740
             - o give <player.name> dragonstone_spear 1
         kieran_pickaxe:
             item: kieran_pickaxe
-            price: 1440
+            price: 11440
             # 1800 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1440
+            - magbungkalcoins take <player.name> 11440
             - o give <player.name> dragonstone_pickaxe 1
         kieran_axe:
             item: kieran_axe
-            price: 1900
+            price: 11900
             # 2000 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1900
+            - magbungkalcoins take <player.name> 11900
             - o give <player.name> dragonstone_axe 1
         asura_fishing_rod:
             item: asura_fishing_rod
-            price: 1435
+            price: 11435
             # 1750 - 18%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1435
+            - magbungkalcoins take <player.name> 11435
             - o give <player.name> asura_animated_weapon-fishing_rod 1
         asura_shield:
             item: asura_shield
-            price: 800
+            price: 11800
             # 1000 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> asura_animated_weapon-shield 1
         asura_bow:
             item: asura_bow
-            price: 2300
+            price: 12300
             # 2500 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2300
+            - magbungkalcoins take <player.name> 12300
             - o give <player.name> asura_animated_weapon-bow 1
         asura_wings:
             item: asura_wings
-            price: 3325
-            # 3500 - 5%
+            price: 13325
+            # 13500 - 5%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3325
+            - magbungkalcoins take <player.name> 13325
             - o give <player.name> asura_animated_weapon-wings 1
         asura_sword:
             item: asura_sword
-            price: 3720
+            price: 13720
             # 4000 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3720
+            - magbungkalcoins take <player.name> 13720
             - o give <player.name> asura_animated_weapon-sword 1
         asura_staff:
             item: asura_staff
-            price: 2700
-            # 3000 - 10%
+            price: 12700
+            # 13000 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2700
+            - magbungkalcoins take <player.name> 12700
             - o give <player.name> asura_animated_weapon-staff 1
         asura_spear:
             item: asura_spear
-            price: 2640
-            # 3000 - 12%
+            price: 11640
+            # 13000 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2640
+            - magbungkalcoins take <player.name> 11640
             - o give <player.name> asura_animated_weapon-spear 1
         asura_shovel:
             item: asura_shovel
-            price: 1640
+            price: 11640
             # 2000 - 18%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1640
+            - magbungkalcoins take <player.name> 11640
             - o give <player.name> asura_animated_weapon-shovel 1
         asura_pickaxe:
             item: asura_pickaxe
-            price: 1912
+            price: 11912
             # 2250 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1912
+            - magbungkalcoins take <player.name> 11912
             - o give <player.name> asura_animated_weapon-pickaxe 1
         asura_axe:
             item: asura_axe
-            price: 2820
-            # 3000 - 6%
+            price: 12820
+            # 13000 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2820
+            - magbungkalcoins take <player.name> 12820
             - o give <player.name> asura_animated_weapon-axe 1
         asura_hoe:
             item: asura_hoe
-            price: 1440
+            price: 11440
             # 1800 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1440
+            - magbungkalcoins take <player.name> 11440
             - o give <player.name> asura_animated_weapon-hoe 1
         asura_blade:
             item: asura_blade
-            price: 1584
+            price: 11584
             # 1800 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1584
+            - magbungkalcoins take <player.name> 11584
             - o give <player.name> asura_animated_weapon-blade 1
         sakura_wings:
             item: sakura_wings
-            price: 3150
-            # 3500 - 10%
+            price: 13150
+            # 13500 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3150
+            - magbungkalcoins take <player.name> 13150
             - o give <player.name> sakura_wing 1
         sakura_pickaxe:
             item: sakura_pickaxe
-            price: 1764
+            price: 11764
             # 2100 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1764
+            - magbungkalcoins take <player.name> 11764
             - o give <player.name> sakura_pickaxe 1
         sakura_katana:
             item: sakura_katana
-            price: 2520
-            # 3000 - 16%
+            price: 12520
+            # 13000 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2520
+            - magbungkalcoins take <player.name> 12520
             - o give <player.name> sakura_katana 1
         sakura_dagger:
             item: sakura_dagger
-            price: 2337
+            price: 12337
             # 2750 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2337
+            - magbungkalcoins take <player.name> 12337
             - o give <player.name> sakura_dagger 1
         sakura_bow:
             item: sakura_bow
-            price: 1903
+            price: 11903
             # 2350 - 19%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1903
+            - magbungkalcoins take <player.name> 11903
             - o give <player.name> sakura_bow 1
         sakura_greatsword:
             item: sakura_greatsword
-            price: 3185
-            # 3500 - 9%
+            price: 13185
+            # 13500 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3185
+            - magbungkalcoins take <player.name> 13185
             - o give <player.name> sakura_greatsword 1
         sakura_axe:
             item: sakura_axe
-            price: 2585
+            price: 11585
             # 2750 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2585
+            - magbungkalcoins take <player.name> 11585
             - o give <player.name> sakura_axe 1
         summertide_blade:
             item: summertide_blade
-            price: 2200
+            price: 11200
             # 2500 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2200
+            - magbungkalcoins take <player.name> 11200
             - o give <player.name> summer_sword 1
         summertide_staff:
             item: summertide_staff
-            price: 1911
+            price: 11911
             # 2100 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1911
+            - magbungkalcoins take <player.name> 11911
             - o give <player.name> summer_staff 1
         summertide_greatsword:
             item: summertide_greatsword
-            price: 2025
+            price: 12025
             # 2500 - 19%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2025
+            - magbungkalcoins take <player.name> 12025
             - o give <player.name> summer_greatsword 1
         summertide_wings:
             item: summertide_wings
-            price: 3255
-            # 3500 - 7%
+            price: 11255
+            # 13500 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3255
+            - magbungkalcoins take <player.name> 11255
             - o give <player.name> summer_cosmeticscore_wings 1
         summertide_bow:
             item: summertide_bow
-            price: 1974
+            price: 11974
             # 2350 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1974
+            - magbungkalcoins take <player.name> 11974
             - o give <player.name> summer_bow 1
         summertide_axe:
             item: summertide_axe
-            price: 1880
+            price: 11880
             # 2350 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1880
+            - magbungkalcoins take <player.name> 11880
             - o give <player.name> summer_axe 1
         # radiance_axe:
         #     item: radiance_axe
-        #     price: 1880
+        #     price: 11880
         #     # 2350 - 20%
         #     currency: placeholder
-        #     currency-name: Token
-        #     placeholder: tm_tokens
+        #     currency-name: Coins
+        #     placeholder: coinsengine_balance_raw_MagbungkalCoins
         #     command:
-        #     - tokenmanager remove <player.name> 1880
+        #     - magbungkalcoins take <player.name> 11880
         #     - o give <player.name> radiance_axe 1
         radiance_blade:
             item: radiance_blade
-            price: 2538
+            price: 11538
             # 2700 - 6% off
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2538
+            - magbungkalcoins take <player.name> 11538
             - o give <player.name> radiance_blade 1
         radiance_sword:
             item: radiance_sword
-            price: 2760
-            # 3000 - 8%
+            price: 11760
+            # 13000 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2760
+            - magbungkalcoins take <player.name> 11760
             - o give <player.name> radiance_sword 1
         radiance_bow:
             item: radiance_bow
-            price: 2050
+            price: 12050
             # 2500 - 18%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2050
+            - magbungkalcoins take <player.name> 12050
             - o give <player.name> radiance_bow 1
         radiance_wings:
             item: radiance_wings
-            price: 3150
-            # 3500 - 10%
+            price: 13150
+            # 13500 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3150
+            - magbungkalcoins take <player.name> 13150
             - o give <player.name> radiance_wings 1
         skeletal_staff:
             item: skeletal_staff
-            price: 1400
+            price: 11400
             # 1750 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1400
+            - magbungkalcoins take <player.name> 11400
             - o give <player.name> fiendskull_staff 1
         skeletal_knife:
             item: skeletal_knife
-            price: 1800
+            price: 11800
             # 2250 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> fiendskull_knife 1
         skeletal_bow:
             item: skeletal_bow
-            price: 2185
+            price: 12185
             # 2350 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2185
+            - magbungkalcoins take <player.name> 12185
             - o give <player.name> fiendskull_bow 1
         skeletal_axe:
             item: skeletal_axe
-            price: 2491
+            price: 12491
             # 2650 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2491
+            - magbungkalcoins take <player.name> 12491
             - o give <player.name> fiendskull_axe 1
         skeletal_pickaxe:
             item: skeletal_pickaxe
-            price: 1980
+            price: 11980
             # 2250 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1980
+            - magbungkalcoins take <player.name> 11980
             - o give <player.name> fiendskull_pickaxe 1
         skeletal_sword:
             item: skeletal_sword
-            price: 2625
+            price: 11625
             # 2950 - 11% off
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2625
+            - magbungkalcoins take <player.name> 11625
             - o give <player.name> fiendskull_sword 1
         arcanist_axe:
             item: arcanist_axe
-            price: 2229
+            price: 12229
             # 2450 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2229
+            - magbungkalcoins take <player.name> 12229
             - o give <player.name> arcanist_axe 1
         arcanist_blade:
             item: arcanist_blade
-            price: 2280
+            price: 12280
             # 2850 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2280
+            - magbungkalcoins take <player.name> 12280
             - o give <player.name> arcanist_sword 1
         arcanist_sword:
             item: arcanist_sword
-            price: 2508
+            price: 12508
             # 2850 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2508
+            - magbungkalcoins take <player.name> 12508
             - o give <player.name> arcanist_greatsword 1
         arcanist_pickaxe:
             item: arcanist_pickaxe
-            price: 2173
+            price: 12173
             # 2650 - 18%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2173
+            - magbungkalcoins take <player.name> 12173
             - o give <player.name> arcanist_pickaxe 1
         arcanist_bow:
             item: arcanist_bow
-            price: 2070
+            price: 12070
             # 2250 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2070
+            - magbungkalcoins take <player.name> 12070
             - o give <player.name> arcanist_bow 1
         arcanist_wing:
             item: arcanist_wing
-            price: 2975
-            # 3500 - 15%
+            price: 11975
+            # 13500 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2975
+            - magbungkalcoins take <player.name> 11975
             - o give <player.name> arcanist_wings 1
         yggdrasil_axe:
             item: yggdrasil_axe
-            price: 2229
+            price: 12229
             # 2450 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2229
+            - magbungkalcoins take <player.name> 11229
             - o give <player.name> yggdrasil_animated-axe 1
         yggdrasil_sword:
             item: yggdrasil_sword
-            price: 2394
+            price: 12394
             # 2850 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2394
+            - magbungkalcoins take <player.name> 12394
             - o give <player.name> yggdrasil_animated-blade 1
         yggdrasil_longsword:
             item: yggdrasil_longsword
-            price: 2479
+            price: 12479
             # 2850 - 13%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2479
+            - magbungkalcoins take <player.name> 12479
             - o give <player.name> yggdrasil_animated-sword 1
         yggdrasil_bow:
             item: yggdrasil_bow
-            price: 1800
+            price: 11800
             # 2250 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> yggdrasil_animated-bow 1
         yggdrasil_pickaxe:
             item: yggdrasil_pickaxe
-            price: 1960
+            price: 11960
             # 2450 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1960
+            - magbungkalcoins take <player.name> 11960
             - o give <player.name> yggdrasil_animated-pickaxe 1
         yggdrasil_wings:
             item: yggdrasil_wings
-            price: 3220
-            # 3500 - 8%
+            price: 13220
+            # 13500 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3220
+            - magbungkalcoins take <player.name> 13220
             - o give <player.name> yggdrasil_animated-wings 1
         spectrum_spear:
             item: spectrum_spear
-            price: 2125
+            price: 12125
             # 2500 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2125
+            - magbungkalcoins take <player.name> 12125
             - o give <player.name> beats_spear 1
         spectrum_shovel:
             item: spectrum_shovel
-            price: 1470
+            price: 11470
             # 1750 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1470
+            - magbungkalcoins take <player.name> 11470
             - o give <player.name> beats_shovel 1
         spectrum_bow:
             item: spectrum_bow
-            price: 2209
+            price: 12209
             # 2350 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2209
+            - magbungkalcoins take <player.name> 11209
             - o give <player.name> beats_bow 1
         spectrum_sword:
             item: spectrum_sword
-            price: 2365
+            price: 12365
             # 2850 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2365
+            - magbungkalcoins take <player.name> 12365
             - o give <player.name> beats_sword 1
         spectrum_pickaxe:
             item: spectrum_pickaxe
-            price: 1560
+            price: 11560
             # 1950 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1560
+            - magbungkalcoins take <player.name> 11560
             - o give <player.name> beats_pickaxe 1
         spectrum_wing:
             item: spectrum_wing
-            price: 2800
-            # 3500 - 20%
+            price: 12800
+            # 13500 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> beats_wings 1
         spectrum_greatsword:
             item: spectrum_greatsword
-            price: 2365
+            price: 12365
             # 2850 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2365
+            - magbungkalcoins take <player.name> 1165
             - o give <player.name> beats_greatsword 1
         hashiras_mucichiro_katana:
             item: hashiras_mucichiro_katana
-            price: 1575
+            price: 11575
             # 1750 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1575
+            - magbungkalcoins take <player.name> 11575
             - o give <player.name> hashira_muichiro_katana 1
         hashiras_mitsuri_katana:
             item: hashiras_mitsuri_katana
-            price: 1575
+            price: 11575
             # 1750 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1575
+            - magbungkalcoins take <player.name> 11575
             - o give <player.name> hashira_mitsuri_katana 1
         hashiras_shinobou_katana:
             item: hashiras_shinobou_katana
-            price: 1592
+            price: 11592
             # 1750 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1592
+            - magbungkalcoins take <player.name> 11592
             - o give <player.name> hashira_shinobou_katana 1
         hashiras_uzui_katana:
             item: hashiras_uzui_katana
-            price: 1645
+            price: 11645
             # 1750 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1645
+            - magbungkalcoins take <player.name> 11645
             - o give <player.name> hashira_uzui_katana 1
         hashiras_rengoku_katana:
             item: hashiras_uzui_katana
-            price: 1627
+            price: 11627
             # 1750 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1627
+            - magbungkalcoins take <player.name> 11627
             - o give <player.name> hashira_rengoku_katana 1
         hashiras_obanai_katana:
             item: hashiras_obanai_katana
-            price: 1575
+            price: 11575
             # 1750 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1575
+            - magbungkalcoins take <player.name> 11575
             - o give <player.name> hashira_obanai_katana 1
         zenitsu_katana:
             item: zenitsu_katana
-            price: 1487
+            price: 11487
             # 1750 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1487
+            - magbungkalcoins take <player.name> 11487
             - o give <player.name> zenitsu_katana 1
         inosuke_katana:
             item: inosuke_katana
-            price: 1487
+            price: 11487
             # 1750 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1487
+            - magbungkalcoins take <player.name> 11487
             - o give <player.name> inosuke_katana 1
         tanjiro_katana:
             item: tanjiro_katana
-            price: 1400
+            price: 11400
             # 1750 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1400
+            - magbungkalcoins take <player.name> 11400
             - o give <player.name> tanjiro_katana 1
         hashiras_gyomei_katana:
             item: hashiras_gyomei_katana
-            price: 1645
+            price: 11645
             # 1750 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1645
+            - magbungkalcoins take <player.name> 11645
             - o give <player.name> hashira_gyomei_katana 1
         hashiras_sanemi_katana:
             item: hashiras_sanemi_katana
-            price: 1610
+            price: 11610
             # 1750 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1610
+            - magbungkalcoins take <player.name> 11610
             - o give <player.name> hashira_sanemi_katana 1
         hashiras_giyu_katana:
             item: hashiras_giyu_katana
-            price: 1575
+            price: 11575
             # 1750 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1575
+            - magbungkalcoins take <player.name> 11575
             - o give <player.name> hashira_giyu_katana 1
         yuletide_greatsword:
             item: yuletide_greatsword
-            price: 2422
+            price: 12422
             # 2850 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2422
+            - magbungkalcoins take <player.name> 11422
             - o give <player.name> gold_greatsword 1
         yuletide_bow:
             item: yuletide_bow
             price: 1867
             # 2250 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1867
+            - magbungkalcoins take <player.name> 11867
             - o give <player.name> gold_bow 1
         yuletide_pickaxe:
             item: yuletide_pickaxe
-            price: 2082
+            price: 12082
             # 2450 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2082
+            - magbungkalcoins take <player.name> 11082
             - o give <player.name> gold_pickaxe 1
         yultide_wing:
             item: yultide_wing
-            price: 3220
-            # 3500 - 8%
+            price: 13220
+            # 13500 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3220
+            - magbungkalcoins take <player.name> 13220
             - o give <player.name> gold_wings 1
         yultide_baton:
             item: yultide_baton
-            price: 1833
+            price: 11833
             # 1950 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1833
+            - magbungkalcoins take <player.name> 11833
             - o give <player.name> gold_baton 1
         yultide_sword:
             item: yultide_sword
-            price: 2365
+            price: 12365
             # 2850 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2365
+            - magbungkalcoins take <player.name> 12365
             - o give <player.name> gold_sword 1
         steam_punk_sword:
             item: steam_punk_sword
-            price: 2536
+            price: 12536
             # 2850 - 11%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2536
+            - magbungkalcoins take <player.name> 12536
             - o give <player.name> steamsparks_animated_weapon_set_sword 1
         steam_punk_fishing_rod:
             item: steam_punk_fishing_rod
-            price: 1627
+            price: 11627
             # 1750 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1627
+            - magbungkalcoins take <player.name> 11627
             - o give <player.name> steamsparks_animated_weapon_set_fishing_rod 1
         steam_punk_shovel:
             item: steam_punk_shovel
-            price: 1890
+            price: 11890
             # 2250 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1890
+            - magbungkalcoins take <player.name> 11890
             - o give <player.name> steamsparks_animated_weapon_set_shovel 1
         steam_punk_halberd:
             item: steam_punk_halberd
-            price: 2082
+            price: 12082
             # 2450 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2082
+            - magbungkalcoins take <player.name> 12082
             - o give <player.name> steamsparks_animated_weapon_set_halberd 1
         steam_punk_staff:
             item: steam_punk_staff
-            price: 1960
+            price: 11960
             # 2450 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1960
+            - magbungkalcoins take <player.name> 11960
             - o give <player.name> steamsparks_animated_weapon_set_staff 1
         steam_punk_hoe:
             item: steam_punk_hoe
-            price: 1800
+            price: 11800
             # 2250 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> steamsparks_animated_weapon_set_hoe 1
         steam_punk_shield:
             item: steam_punk_shield
-            price: 1800
+            price: 11800
             # 2250 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1800
+            - magbungkalcoins take <player.name> 11800
             - o give <player.name> steamsparks_animated_weapon_set_shield 1
         steam_punk_axe:
             item: steam_punk_axe
-            price: 2337
+            price: 12337
             # 2850 - 18%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2337
+            - magbungkalcoins take <player.name> 12337
             - o give <player.name> steamsparks_animated_weapon_set_battle_axe 1
         steam_punk_pickaxe:
             item: steam_punk_pickaxe
-            price: 2278
+            price: 12278
             # 2450 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2278
+            - magbungkalcoins take <player.name> 12278
             - o give <player.name> steamsparks_animated_weapon_set_pickaxe 1
         steam_punk_blade:
             item: steam_punk_blade
-            price: 2365
+            price: 12365
             # 2850 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2365
+            - magbungkalcoins take <player.name> 12365
             - o give <player.name> steamsparks_animated_weapon_set_blade 1
         valentine_axe:
             item: valentine_axe
-            price: 2180
+            price: 12180
             # 2450 - 11%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2180
+            - magbungkalcoins take <player.name> 12180
             - o give <player.name> valentine_axe 1
         valentine_boquet:
             item: valentine_boquet
-            price: 2400
-            # 3000 - 20%
+            price: 12400
+            # 13000 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2400
+            - magbungkalcoins take <player.name> 12400
             - o give <player.name> valentine_boquet 1
         valentine_crossbow:
             item: valentine_crossbow
-            price: 1470
+            price: 11470
             # 1750 - 16%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1470
+            - magbungkalcoins take <player.name> 11470
             - o give <player.name> valentine_crossbow 1
         valentine_fishingrod:
             item: valentine_fishingrod
-            price: 1080
+            price: 11080
             # 1350 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1080
-            - o give <player.name> valentine_fishingrod 1
+            - magbungkalcoins take <player.name> 11080
+            - o give <player.name> valentine_fishing_rod 1
         valentine_bow:
             item: valentine_bow
-            price: 2091
+            price: 12091
             # 2350 - 11%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2091
+            - magbungkalcoins take <player.name> 12091
             - o give <player.name> valentine_bow 1
         valentine_greatsword:
             item: valentine_greatsword
-            price: 2308
+            price: 12308
             # 2850 - 19%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2308
+            - magbungkalcoins take <player.name> 12308
             - o give <player.name> valentine_greatsword 1
         valentine_pickaxe:
             item: valentine_pickaxe
-            price: 1867
+            price: 11867
             # 2250 - 17%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1867
+            - magbungkalcoins take <player.name> 11867
             - o give <player.name> valentine_pickaxe 1
         valentine_scythe:
             item: valentine_pickaxe
-            price: 1665
+            price: 11665
             # 1850 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1665
+            - magbungkalcoins take <player.name> 11665
             - o give <player.name> valentine_scythe 1
         valentine_shield:
             item: valentine_shield
-            price: 800
+            price: 1800
             # 1000 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 800
+            - magbungkalcoins take <player.name> 1800
             - o give <player.name> valentine_shield 1
         valentine_spear:
             item: valentine_spear
-            price: 1702
+            price: 11702
             # 1850 - 8%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1702
+            - magbungkalcoins take <player.name> 11702
             - o give <player.name> valentine_spear 1
         valentine_sword:
             item: valentine_sword
-            price: 2508
+            price: 12508
             # 2850 - 12%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2508
+            - magbungkalcoins take <player.name> 12508
             - o give <player.name> valentine_sword 1
         valentine_wings:
             item: valentine_wings
-            price: 3290
-            # 3500 - 6%
+            price: 13290
+            # 13500 - 6%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 3290
+            - magbungkalcoins take <player.name> 13290
             - o give <player.name> valentine_wings 1
         decapitated_pickaxe:
             item: decapitated_pickaxe
-            price: 2185
+            price: 12185
             # 2350 - 7%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2185
+            - magbungkalcoins take <player.name> 12185
             - o give <player.name> headlesshorseman_animated_weapon_set_pickaxe 1
         decapitated_bow:
             item: decapitated_bow
-            price: 2082
+            price: 12082
             # 2450 - 15%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2082
+            - magbungkalcoins take <player.name> 12082
             - o give <player.name> headlesshorseman_animated_weapon_set_bow 1
         decapitated_wing:
             item: decapitated_wing
-            price: 1873
+            price: 11873
             # 2082 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1873
+            - magbungkalcoins take <player.name> 11873
             - o give <player.name> headlesshorseman_animated_weapon_set_wing 1
         decapitated_hat:
             item: decapitated_hat
             price: 1200
             # 1500 - 20%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 1200
+            - magbungkalcoins take <player.name> 1200
             - o give <player.name> headlesshorseman_animated_weapon_set_hat 1
         decapitated_greatsword:
             item: decapitated_greatsword
-            price: 2565
+            price: 12565
             # 2850 - 10%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2565
+            - magbungkalcoins take <player.name> 12565
             - o give <player.name> headlesshorseman_animated_weapon_set_big_sword 1
         decapitated_axe:
             item: decapitated_axe
-            price: 2229
+            price: 12229
             # 2450 - 9%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2229
+            - magbungkalcoins take <player.name> 11229
             - o give <player.name> headlesshorseman_animated_weapon_set_axe 1
         decapitated_sword:
             item: decapitated_sword
-            price: 2536
+            price: 12536
             # 2850 - 11%
             currency: placeholder
-            currency-name: Token
-            placeholder: tm_tokens
+            currency-name: Coins
+            placeholder: coinsengine_balance_raw_MagbungkalCoins
             command:
-            - tokenmanager remove <player.name> 2536
+            - magbungkalcoins take <player.name> 12536
             - o give <player.name> headlesshorseman_animated_weapon_set_sword 1
         # Money
         stray_spear:
             item: stray_spear
-            price: 4200000
+            price: 14200000
             # 5000000 - 16%
             currency: money
             command:
@@ -1228,8 +1228,8 @@ mystery_trader_config:
             - o give <player.name> stray_axe 1
         stray_fishing_rod:
             item: stray_fishing_rod
-            price: 2400000
-            # 3000000 - 20%
+            price: 12400000
+            # 13000000 - 20%
             currency: money
             command:
             - o give <player.name> stray_fishing_rod 1
@@ -1242,14 +1242,14 @@ mystery_trader_config:
             - o give <player.name> stray_scythe 1
         stray_sword:
             item: stray_sword
-            price: 24000000
-            # 30000000 - 20%
+            price: 124000000
+            # 130000000 - 20%
             currency: money
             command:
             - o give <player.name> stray_sword 1
         stray_wing:
             item: stray_wing
-            price: 48000000
+            price: 148000000
             # 60000000 - 20%
             currency: money
             command:
@@ -1263,8 +1263,8 @@ mystery_trader_config:
             - o give <player.name> stray_hat 1
         goddess_shovel:
             item: goddess_shovel
-            price: 2460000
-            # 3000000 - 18%
+            price: 12460000
+            # 13000000 - 18%
             currency: money
             command:
             - o give <player.name> goddess_shovel 1
@@ -1277,14 +1277,14 @@ mystery_trader_config:
             - o give <player.name> goddess_axe 1
         goddess_crossbow:
             item: goddess_crossbow
-            price: 4400000
+            price: 14400000
             # 5000000 - 12%
             currency: money
             command:
             - o give <player.name> goddess_crossbow 1
         goddess_sword:
             item: goddess_sword
-            price: 40000000
+            price: 140000000
             # 50000000 - 20%
             currency: money
             command:
@@ -1298,7 +1298,7 @@ mystery_trader_config:
             - o give <player.name> goddess_bow 1
         goddess_hoe:
             item: goddess_hoe
-            price: 2100000
+            price: 12100000
             # 2500000 - 16%
             currency: money
             command:
@@ -1312,7 +1312,7 @@ mystery_trader_config:
             - o give <player.name> goddess_pickaxe 1
         goddess_wings:
             item: goddess_wings
-            price: 40000000
+            price: 140000000
             # 50000000 - 20%
             currency: money
             command:
@@ -1326,19 +1326,19 @@ mystery_trader_config:
             - o give <player.name> goddess_helmet 1
         goddess_spear:
             item: goddess_spear
-            price: 24300000
-            # 30000000 - 19%
+            price: 124300000
+            # 130000000 - 19%
             currency: money
             command:
             - o give <player.name> goddess_spear 1
         goddess_shield:
             item: goddess_shield
-            price: 460000
+            price: 1460000
             # 500000 - 8%
             currency: money
             command:
             - o give <player.name> goddess_shield 1
-    reset-time: 12h
+    reset-time: 3h
 
 # Data for shop
 wufu_wang_sword:
@@ -1442,7 +1442,7 @@ wufu_wang_axe:
 wufu_wang_bow:
     type: item
     material: bow
-    display name: <&gradient[from=#1D5D9B;to=#F4D160]>⚛》Wufu Wang Axe《⚛
+    display name: <&gradient[from=#1D5D9B;to=#F4D160]>⚛》Wufu Wang Bow《⚛
     lore:
     - <dark_gray>↪ <&gradient[from=#1D5D9B;to=#1D5D9B]>======================= <dark_gray>↩
     - <gray><bold>⇨ <reset><&gradient[from=#F4D160;to=#F4D160]>Carved from ancient yew trees and infused with the spirit of
@@ -1562,7 +1562,7 @@ wufu_wang_crossbow:
     - <gray> Enchantments
     - <gray> • Multishot V
     - <gray> • Piercing X
-    - <gray> • Quick Charge IV
+    - <gray> • Quick Charge V
     - <gray> • Unbreaking X
     - <gray>
     - <gold>» <yellow>5% discount off <gold>«
@@ -2612,7 +2612,7 @@ arcanist_blade:
 arcanist_sword:
     type: item
     material: netherite_sword
-    display name: <&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST SWORD ۞
+    display name: <bold><&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST SWORD ۞
     lore:
     - <&8>↪ ======================= ↩
     - <gray>⇨ Arcanist are various types of swords
@@ -2635,7 +2635,7 @@ arcanist_sword:
 arcanist_bow:
     type: item
     material: bow
-    display name: <&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST BOW ۞
+    display name: <bold><&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST BOW ۞
     lore:
     - <&8>↪ ======================= ↩
     - <gray>⇨ Arcanist are various types of swords
@@ -2655,7 +2655,7 @@ arcanist_bow:
 arcanist_pickaxe:
     type: item
     material: netherite_pickaxe
-    display name: <&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST PICKAXE ۞
+    display name: <bold><&gradient[from=#FFEC9B;to=#C0AC09]> ۞ ARCANIST PICKAXE ۞
     lore:
     - <&8>↪ ======================= ↩
     - <gray>⇨ Arcanist are various types of swords
@@ -2674,7 +2674,7 @@ arcanist_pickaxe:
 arcanist_wing:
     type: item
     material: paper
-    display name: <&gradient[from=#FFEC9B;to=#C0AC09]>۞ ARCANIST WING ۞
+    display name: <bold><&gradient[from=#FFEC9B;to=#C0AC09]>۞ ARCANIST WING ۞
     lore:
     - <&8>↪ ======================= ↩
     - <gray>⇨ Arcanist are various types of swords
@@ -4734,4 +4734,4 @@ question_mark:
     display name: <gold><bold>Mystery Trader
     lore:
     - <empty>
-    - <gray>Resets every <gold>12 hours<gray>, next reset in <yellow><server.flag[mysterytrader.reset_time].format[hh:mm]>
+    - <gray>Resets every <gold>3 hours<gray>, next reset in <yellow><server.flag[mysterytrader.reset_time].format[hh:mm]>
