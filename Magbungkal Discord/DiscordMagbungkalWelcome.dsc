@@ -57,5 +57,3 @@ MagbungkalLinkedMessage:
              description: **You may now create a ticket for linking rewards:** <n>➥ 1000 Coins<n>➥ ₱150,000<n>➥ 15x Vote Keys<n>➥ 1500 Claims<n><n>**Please choose your roles here:** <n>➥ https://discord.com/channels/1126475444837949500/1182320011759603826<n><n>**Note:** Make sure you pick the perspective gamemode you want, so you will see the gamemode Discord channels.
          - define linked.message <discord_embed.with_map[<[magbungkal_linked_map]>]>
          - ~discordmessage id:magbungkal user:<[user]> rows:<list_single[<[button_list]>]> <[linked.message]>
-      - else:
-        - determine cancelled
