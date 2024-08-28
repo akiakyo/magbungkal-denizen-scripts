@@ -24,29 +24,26 @@ discord_ticket_config:
         main:
             title: Do you need any help?
             color: orange
-            description: If you needed any help, please considered creating a ticket down below and choose a category for what your concern related is.<n><n>Our staff team support hours are between (**10:00 AM** to **10:00 PM** UTC+8). Even while we are frequently accessible after these hours, responses might not come through until support hours restart.
+            description: If you needed any help, please consider creating a ticket down below and describe what your concern is related to.<n><n>Our staff team active hours are between (**10:00 AM** to **10:00 PM** UTC+8) even while we are frequently accessible after these hours, responses might not come through until support hours restart.
             # image: URL
             # author_name: text
             # author_url: URL (requires author_name set)
             # author_icon_url: URL (requires author_name set)
-            footer: Magbungkal Support - play.magbungkal.net
-            footer_icon: https://i.imgur.com/g3cM2l7.png
-            thumbnail: https://i.imgur.com/g3cM2l7.png
+            footer: Tickets - Magbungkal.net
+            # footer_icon: https://i.imgur.com/g3cM2l7.png
+            # thumbnail: https://i.imgur.com/g3cM2l7.png
             # timestamp: TimeTag
             # title_url: URL (requires title set)
         ticket:
             title: Hello <[user].name>, here is your ticket.
             description: We will be with you as soon as possible for us to assist you.
             author_name: Ticket has arrived!
-            author_icon_url: https://i.imgur.com/g3cM2l7.png
             color: orange
             #timestamp: <util.time_now.format_discord[R]>
-            thumbnail: https://i.imgur.com/g3cM2l7.png
+            thumbnail: <[user].avatar_url>
         ticket-close:
-            author_name: Ticket Closed
-            author_icon_url: https://i.imgur.com/g3cM2l7.png
-            #title: Support Ticket Closed!
-            color: yellow
+            title: Support Ticket Closed!
+            color: orange
             footer: Tickets - Magbungkal.net
             #footer_icon: https://i.imgur.com/g3cM2l7.png
             #timestamp: <util.time_now.format_discord[R]>
@@ -74,12 +71,12 @@ discord_ticket_config:
         open_ticket:
             style: secondary
             id: open_ticket
-            label: 📩 Open a Ticket
+            label: Open a Ticket
             # emoji: ElementTag
         ask_channel:
             style: link
             id: https://discord.com/channels/1126475444837949500/1182338159032401930
-            label: 👥 Ask in Channel
+            label: Community Support
             # emoji: ElementTag
 
     modal:
@@ -98,7 +95,7 @@ discord_ticket_config:
         date_and_time:
             id: date_and_time
             label: Date
-            is_required: true
-            min_length: 8
-            max_length: 8
+            is_required: false
+            # min_length: 8
+            # max_length: 8
             style: short
