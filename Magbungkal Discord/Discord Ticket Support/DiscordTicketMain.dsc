@@ -71,7 +71,7 @@ discord_ticket_events_handler:
         - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
         - if <[text].starts_with[!close]> && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
             - flag <[channel]> ticket_closer:<[user]>
-            - flag <[channel]> ticket_closer_name:<[user].name>
+            - flag <[channel]> ticket_closer_name:<[user].mention>
             - inject discord_ticket_close
 
         # check active-ticket hours
@@ -80,11 +80,15 @@ discord_ticket_events_handler:
         - define end_hour <[active_ticket_hours].get[end]>
         - define current_time <util.time_now.to_zone[+8].hour>
         - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
+            - define ticket_role <script[discord_ticket_config].data_key[ticket-helper-role]>
+            - define group <script[discord_ticket_config].data_key[group-id]>
+            - if <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+               - determine cancelled
             - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
             - define embed_message <discord_embed.with_map[<[message_map]>]>
             - if <server.has_flag[cooldown]>:
                - stop
-            - flag server cooldown expire:5m
+            - flag server cooldown expire:1m
             - discordmessage id:magbungkal reply:<[message]> <[embed_message]>
             - stop
 
@@ -164,7 +168,7 @@ discord_ticket_events_handler:
         - define description "We will be with you as soon as possible for us to assist you.<n><&nl>"
         - foreach <[values]>:
             - define name <[modal_data].get[<[key]>]>
-            - define description "<[description]><[name].get[label]><n>```<[value]>```<&nl>"
+            - define description "<[description]><[name].get[label]><n>**```<[value]>```**<&nl>"
         - define ticket_embed <[ticket_embed].with[description].as[<[description]>]>
 
         # ping staff for the ticket
@@ -210,16 +214,53 @@ discord_ticket_close:
     - define reason "Reason: `<[text].replace_text[!close].trim>`"
     - if <[text].split.size> <= 1:
         - define reason "⚒️ **Reason**: No reason provided!"
-    - define ticket_closer "⛑️ **Closed by**: `<[channel].flag[ticket_closer_name]>`"
-    - define ticket_id "❔ **Ticket ID**: `<[channel].flag[ticket_id].if_null["-"]>`"
+    - define ticket_opener "📥 **Opened by**: <[ticket_creator].mention>"
+    - define ticket_closer "📤 **Closed by**: <[channel].flag[ticket_closer_name]>"
+    - define ticket_id "❔ **Ticket ID**: **`<[channel].flag[ticket_id].if_null["-"]>`**"
     - define open_time "📂 **Opened at**: <[channel].flag[ticket_creation_time]>"
     - define close_time "❕ **Closed on**: <util.time_now.to_zone[+8].format_discord>"
-    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_closer]><&nl><[open_time]><&nl><[close_time]><&nl><&nl><[description]>
+    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_opener]><&nl><[ticket_closer]><&nl><[open_time]><&nl><[close_time]><&nl><&nl><[description]>
     - define transcript_msg <[transcript_msg].with[description].as[<[description]>]>
 
     - define transcript_msg <discord_embed.with_map[<[transcript_msg]>]>
     - define transcript_logs <[channel].flag[discord_transcript].separated_by[<&nl>]>
-    - ~discordmessage id:magbungkal channel:<[logging_channel]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
-    - ~discordmessage id:magbungkal user:<[ticket_creator]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
+    # - ~discordmessage id:magbungkal channel:<[logging_channel]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
+    # - ~discordmessage id:magbungkal user:<[ticket_creator]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
+    - define paste_server_url logs.magbungkal.net
+    - define paste_server_port 443
+    - define protocol http
+    - if <[paste_server_port]> == 443:
+        - define protocol https
+    - ~webget <[protocol]>://<[paste_server_url]>:<[paste_server_port]>/documents method:post data:<[transcript_logs]> save:upload
+    - foreach <[ticket_creator]> as:user:
+        - define result_url <[protocol]>://<[paste_server_url]>:<[paste_server_port]>/<entry[upload].result.after[{"key":"].before["}]>
+        # - ~discordmessage id:magbungkal user:<[user]> "Here is your transcript: <[result_url]>"
+
+        - definemap button_map:
+             1:
+               style: link
+               id: <[result_url]>
+               label: Transcript link here
+        - define button_list <list>
+        - foreach <[button_map]>:
+           - define my_button <discord_button.with_map[<[value]>]>
+           - define button_list:->:<[my_button]>
+
+        - ~discordmessage id:magbungkal user:<[user]> rows:<list_single[<[button_list]>]> <[transcript_msg]>
+
+    - foreach <[logging_channel]> as:channel:
+        - define result_url <[protocol]>://<[paste_server_url]>:<[paste_server_port]>/<entry[upload].result.after[{"key":"].before["}]>
+
+        - definemap button_map:
+             1:
+               style: link
+               id: <[result_url]>
+               label: Transcript link here
+        - define button_list <list>
+        - foreach <[button_map]>:
+           - define my_button <discord_button.with_map[<[value]>]>
+           - define button_list:->:<[my_button]>
+
+        - ~discordmessage id:magbungkal channel:<[channel]> rows:<list_single[<[button_list]>]> <[transcript_msg]>
 
     - adjust <[channel]> delete
