@@ -65,6 +65,7 @@ discord_ticket_events_handler:
         - define text <[message].text>
         - define transcript_format "<util.time_now.format> <[name]>: <[text]>"
         - flag <[channel]> discord_transcript:->:<[transcript_format]>
+        - define ticket_creator <[channel].flag[ticket_creator]>
 
         - wait 1t
         - define group <script[discord_ticket_config].data_key[group-id]>
@@ -73,6 +74,13 @@ discord_ticket_events_handler:
             - flag <[channel]> ticket_closer:<[user]>
             - flag <[channel]> ticket_closer_name:<[user].mention>
             - inject discord_ticket_close
+
+        - if <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+          - adjust <[channel]> name:Awaiting-Response-<[ticket_creator].nickname[magbungkal,1126475444837949500]>
+       
+        - if !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+          - adjust <[channel]> name:<[ticket_creator].nickname[magbungkal,1126475444837949500]>
+        #   - discordmessage id:magbungkal channel:1147376359694413875 "[Ticket] Awaiting staff response for <[channel].mention>"
 
         # check active-ticket hours
         - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
@@ -156,7 +164,7 @@ discord_ticket_events_handler:
         - define group <script[discord_ticket_config].data_key[group-id]>
         - define ticket_channel_category <script[discord_ticket_config].data_key[ticket-channel-category]>
         - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
-        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[ticket_index]>-<[user].name> users:<[user]> roles:<list[<[ticket_helper_role]>]> category:<[ticket_channel_category]> save:created_channel
+        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[user].nickname[magbungkal,1126475444837949500]> users:<[user]> roles:<list[<[ticket_helper_role]>]> category:<[ticket_channel_category]> save:created_channel
 
         # generate the initial message for the ticket
         - define created_channel <entry[created_channel].channel>
@@ -165,7 +173,7 @@ discord_ticket_events_handler:
         - define ticket_embed <discord_embed.with_map[<[ticket_message_map]>]>
 
         - define modal_data <script[discord_ticket_config].data_key[modal]>
-        - define description "We will be with you as soon as possible for us to assist you.<n><&nl>"
+        - define description "We will be with you as soon as possible for us to assist you.<n><n>Ticket ID: **<&ns><[ticket_index]>**<n><&nl>"
         - foreach <[values]>:
             - define name <[modal_data].get[<[key]>]>
             - define description "<[description]><[name].get[label]><n>**```<[value]>```**<&nl>"
@@ -219,7 +227,7 @@ discord_ticket_close:
     - define ticket_id "❔ **Ticket ID**: **`<[channel].flag[ticket_id].if_null["-"]>`**"
     - define open_time "📂 **Opened at**: <[channel].flag[ticket_creation_time]>"
     - define close_time "❕ **Closed on**: <util.time_now.to_zone[+8].format_discord>"
-    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_opener]><&nl><[ticket_closer]><&nl><[open_time]><&nl><[close_time]><&nl><&nl><[description]>
+    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_opener]><&sp>---<&sp><[open_time]><&nl><[ticket_closer]><&sp>---<&sp><[close_time]><&nl><&nl><[description]>
     - define transcript_msg <[transcript_msg].with[description].as[<[description]>]>
 
     - define transcript_msg <discord_embed.with_map[<[transcript_msg]>]>
