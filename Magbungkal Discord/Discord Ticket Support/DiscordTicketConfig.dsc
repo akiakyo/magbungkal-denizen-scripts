@@ -58,13 +58,13 @@ discord_ticket_config:
             title: Hey <[user].name>! You are not allowed to use this!
             color: maroon
         ticket-ready:
-            title: Your ticket is ready, head over to <[created_channel].mention>
+            title: Ticket has been generated, head over to <[created_channel].mention>
             color: orange
     ticket-claim-button:
         # format for the discord button
         style: secondary
         id: discord_ticket_claim
-        label: Claim Ticket
+        label: Claim Ticket (Staff Only)
         # emoji:
 
     buttons:
