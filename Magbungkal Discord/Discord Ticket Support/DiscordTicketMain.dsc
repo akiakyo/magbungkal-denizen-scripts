@@ -57,6 +57,7 @@ discord_ticket_events_handler:
         after discord message received:
         - define channel <context.channel>
         - define message <context.new_message>
+        - define text <[message].text>
         - define user <[message].author>
         - stop if:<[user].is_bot>
         - stop if:!<[channel].has_flag[discord_ticket]>
@@ -70,17 +71,30 @@ discord_ticket_events_handler:
         - wait 1t
         - define group <script[discord_ticket_config].data_key[group-id]>
         - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
+
         - if <[text].starts_with[!close]> && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
             - flag <[channel]> ticket_closer:<[user]>
             - flag <[channel]> ticket_closer_name:<[user].mention>
             - inject discord_ticket_close
 
+        - if <[text].starts_with[!close]> && !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+            - define no.permission <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
+            - define no.permission_embed <discord_embed.with_map[<[no.permission]>]>
+            - discordmessage id:magbungkal reply:<[message]> <[no.permission_embed]>
+
         - if <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
           - adjust <[channel]> name:Awaiting-Response-<[ticket_creator].nickname[magbungkal,1126475444837949500]>
-       
+ 
         - if !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
           - adjust <[channel]> name:<[ticket_creator].nickname[magbungkal,1126475444837949500]>
-        #   - discordmessage id:magbungkal channel:1147376359694413875 "[Ticket] Awaiting staff response for <[channel].mention>"
+
+        - if <[text].starts_with[!ticketrename]> && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+          - adjust <[channel]> name:<[text].split.get[2]>
+          - discordmessage id:magbungkal channel:<[channel]> "[Ticket] Channel renamed to **<[text].split.get[2]>**"
+
+        - else if <[text].starts_with[!ticketrename]> && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+          - discordmessage id:magbungkal channel:<[channel]> "[Ticket] You don't have permission"
+
 
         # check active-ticket hours
         - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
@@ -107,20 +121,9 @@ discord_ticket_events_handler:
         - define user <context.interaction.user>
         - define interaction <context.interaction>
         - define group <script[discord_ticket_config].data_key[group-id]>
+        - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
 
         - if <[button].map.get[id]> == open_ticket:
-            # # check active-ticket hours
-            # - define active_ticket_hours <script[discord_ticket_config].data_key[active-hours]>
-            # - define start_hour <[active_ticket_hours].get[start]>
-            # - define end_hour <[active_ticket_hours].get[end]>
-            # - define current_time <util.time_now.to_zone[+8].hour>
-            # - if <[current_time]> < <[start_hour]> || <[current_time]> > <[end_hour]>:
-            #     - define message_map <script[discord_ticket_config].parsed_key[messages].get[active-hours]>
-            #     - define embed_message <discord_embed.with_map[<[message_map]>]>
-            #     - ~discordinteraction defer interaction:<[interaction]> ephemeral
-            #     - ~discordinteraction reply interaction:<[interaction]> <[embed_message]>
-            #     - stop
-
             - define modal_forms <script[discord_ticket_config].data_key[modal]>
             - define rows <map>
             - foreach <[modal_forms]> as:modal:
@@ -132,19 +135,39 @@ discord_ticket_events_handler:
             # show modal
             - ~discordmodal interaction:<[interaction]> name:discord_ticket_open title:Ticket rows:<[rows]>
 
-        - if <[button].map.get[id]> == discord_ticket_claim:
-            - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
-            - if !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
-                - define no-permission_map <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
-                - define no-permission.msg <discord_embed.with_map[<[no-permission_map]>]>
-                - ~discordinteraction reply interaction:<[interaction]> <[no-permission.msg]>
-                - wait 3s
-                - ~discordinteraction delete interaction:<[interaction]>
-                - stop
-            - define message_map <script[discord_ticket_config].parsed_key[messages].get[ticket-claim]>
-            - define embed_message <discord_embed.with_map[<[message_map]>]>
-            - ~discordinteraction reply interaction:<[interaction]> <[embed_message]>
+        - if <[button].map.get[id]> == discord_ticket_close:
+            - flag <[channel]> ticket_closer:<[user]>
+            - flag <[channel]> ticket_closer_name:<[user].mention>
 
+            - definemap close_rows:
+                1:
+                    1: <discord_text_input.with[id].as[closemodal].with[label].as[Type reason here].with[style].as[short]>
+
+            - discordmodal interaction:<[interaction]> name:close_modal title:Reason rows:<[close_rows]>
+
+        - if <[button].map.get[id]> == discord_ticket_claim && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+            - define ticket-claim.message <script[discord_ticket_config].parsed_key[messages].get[ticket-claim]>
+            - define ticket-claim <discord_embed.with_map[<[ticket-claim.message]>]>
+            - ~discordinteraction defer interaction:<[interaction]> ephemeral:false
+            - discordinteraction reply interaction:<[interaction]> <[ticket-claim]>
+
+        - if <[button].map.get[id]> == discord_ticket_claim && !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+            - define no-permission.message <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
+            - define no-permission <discord_embed.with_map[<[no-permission.message]>]>
+            - ~discordinteraction defer interaction:<[interaction]> ephemeral:true
+            - discordinteraction reply interaction:<[interaction]> <[no-permission]>
+
+        after discord modal submitted name:close_modal for:magbungkal:
+        - define name <context.name>
+        - define value <context.values>
+        - define interaction <context.interaction>
+        - define channel <context.channel>
+        - define user <context.interaction.user>
+
+        - flag <[channel]> ticket_closer:<[user]>
+        - flag <[channel]> ticket_closer_name:<[user].mention>
+        - flag <[channel]> ticket_closer_reason:<context.values.get[closemodal]>
+        - inject discord_ticket_close
 
         #
         # generates the ticket channel
@@ -153,6 +176,7 @@ discord_ticket_events_handler:
         - define interaction <context.interaction>
         - ~discordinteraction defer interaction:<[interaction]> ephemeral
         - define user <[interaction].user>
+        - define username <[user].name>
         - define name <context.name>
         - define values <context.values>
         - stop if:!<[name].contains[discord_ticket]>
@@ -168,6 +192,10 @@ discord_ticket_events_handler:
 
         # generate the initial message for the ticket
         - define created_channel <entry[created_channel].channel>
+
+        # if discord user has not linked - do not have any nickname on magbungkal discord
+        - if <[user].contains[ticket_creatornickname]>:
+            - adjust <[created_channel]> name:<[username]>
 
         - define ticket_message_map <script[discord_ticket_config].parsed_key[messages].get[ticket]>
         - define ticket_embed <discord_embed.with_map[<[ticket_message_map]>]>
@@ -190,15 +218,16 @@ discord_ticket_events_handler:
         - wait 3s
         - adjust <[player_ping]> delete
 
-        # claim button for the ticket
-        - define button_map <script[discord_ticket_config].data_key[ticket-claim-button]>
-        - define button <discord_button.with_map[<[button_map]>]>
+        # generate buttons
+        - definemap buttons:
+             1:
+                1: <script[discord_ticket_config].parsed_key[buttons].get[ticket_claim_button]>
+                2: <script[discord_ticket_config].parsed_key[buttons].get[ticket_close_button]>
 
         # info message for the user
-        - ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]> rows:<[button]>
+        - ~discordmessage id:magbungkal channel:<[created_channel]> <[ticket_embed]> rows:<[buttons]>
         - define ticket-ready <script[discord_ticket_config].parsed_key[messages].get[ticket-ready]>
         - define ticket-ready_message <discord_embed.with_map[<[ticket-ready]>]>
-        # - ~discordinteraction reply interaction:<[interaction]> "Your ticket is ready, head over to <[created_channel].mention>"
         - ~discordinteraction reply interaction:<[interaction]> <[ticket-ready_message]>
 
         # flag channel for logging
@@ -219,9 +248,7 @@ discord_ticket_close:
     - define transcript_msg <script[discord_ticket_config].parsed_key[messages].get[ticket-close]>
     # generate description
     - define description <[transcript_msg].get[description].if_null[<empty>]>
-    - define reason "Reason: `<[text].replace_text[!close].trim>`"
-    - if <[text].split.size> <= 1:
-        - define reason "⚒️ **Reason**: No reason provided!"
+    - define reason "⚒️ **Reason**: <[channel].flag[ticket_closer_reason].if_null[None provided!]>"
     - define ticket_opener "📥 **Opened by**: <[ticket_creator].mention>"
     - define ticket_closer "📤 **Closed by**: <[channel].flag[ticket_closer_name]>"
     - define ticket_id "❔ **Ticket ID**: **`<[channel].flag[ticket_id].if_null["-"]>`**"
@@ -232,8 +259,6 @@ discord_ticket_close:
 
     - define transcript_msg <discord_embed.with_map[<[transcript_msg]>]>
     - define transcript_logs <[channel].flag[discord_transcript].separated_by[<&nl>]>
-    # - ~discordmessage id:magbungkal channel:<[logging_channel]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
-    # - ~discordmessage id:magbungkal user:<[ticket_creator]> <[transcript_msg]> attach_file_name:transcript.yaml attach_file_text:<[transcript_logs]>
     - define paste_server_url logs.magbungkal.net
     - define paste_server_port 443
     - define protocol http
@@ -242,7 +267,6 @@ discord_ticket_close:
     - ~webget <[protocol]>://<[paste_server_url]>:<[paste_server_port]>/documents method:post data:<[transcript_logs]> save:upload
     - foreach <[ticket_creator]> as:user:
         - define result_url <[protocol]>://<[paste_server_url]>:<[paste_server_port]>/<entry[upload].result.after[{"key":"].before["}]>
-        # - ~discordmessage id:magbungkal user:<[user]> "Here is your transcript: <[result_url]>"
 
         - definemap button_map:
              1:
