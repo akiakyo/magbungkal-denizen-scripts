@@ -52,20 +52,15 @@ discord_ticket_config:
             color: orange
             description: Our staff team support hours are between (**10:00 AM** to **10:00 PM** GMT+8). <n><n>Current Time: **<util.time_now.to_zone[+8].format_discord>** UTC+8<n><n>Please consider using https://discord.com/channels/1126475444837949500/1182338159032401930 channel for now until support hours restart.
         ticket-claim:
-            title: Ticket claimed by <[user].name>
-            color: lime
+            title: Claimed Ticket
+            description: Your ticket will be handled by <[user].mention>
+            color: orange
         no-permission:
-            title: Hey <[user].name>! You are not allowed to use this!
+            title: ❌ You don't have permission
             color: maroon
         ticket-ready:
             title: Ticket has been generated, head over to <[created_channel].mention>
             color: orange
-    ticket-claim-button:
-        # format for the discord button
-        style: secondary
-        id: discord_ticket_claim
-        label: Claim Ticket (Staff Only)
-        # emoji:
 
     buttons:
         open_ticket:
@@ -78,6 +73,14 @@ discord_ticket_config:
             id: https://discord.com/channels/1126475444837949500/1182338159032401930
             label: Community Support
             # emoji: ElementTag
+        ticket_claim_button:
+            style: secondary
+            id: discord_ticket_claim
+            label: 🔑 Claim
+        ticket_close_button:
+           style: secondary
+           id: discord_ticket_close
+           label: 🔒 Close
 
     modal:
         ign:
