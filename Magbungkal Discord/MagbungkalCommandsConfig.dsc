@@ -89,10 +89,10 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: You wish to donate but do not have a PayPal account? You do not have to worry. We also accept GCash as a payment option.<&nl><&nl>**Allow us 10 - 30 minutes for GCash payment process.**<&nl><n>If you intend to utilise this payment option, please notify any staff member online.```yml<n>Gcash No. 09203766868```
+                description: You can pay for your orders using GCash manually if you don't have a PayPal account<&nl><&nl>**Allow us 10 - 30 minutes for GCash payment process.**<&nl><n>If you intend to utilise this payment option, please notify any staff member online.
                 # footer: ElementTag
                 # footer_icon: ElementTag of a URL (requires footer set)
-                image: https://media.discordapp.net/attachments/1212849029667627028/1229953753113690163/e8678d1695aa386933beabb036bb824b7867ec52.png?ex=66318eb2&is=661f19b2&hm=3361dcee11170d1c35297d8c12055bccd4c8aeac984b13c901cc8429eff9ee41&=&format=webp&quality=lossless&width=1440&height=479
+                image: https://media.discordapp.net/attachments/1230100405950611487/1297255032038752276/image.png?ex=67154265&is=6713f0e5&hm=f47f0a2ef74834956eddbe6647b5be3f4b5113d81783e7ece3f96f0f238f8358&=&format=webp&quality=lossless
                 # thumbnail: ElementTag of a URL
                 # timestamp: TimeTag
                 #title: Minecraft server's IP Address
@@ -100,7 +100,28 @@ discord_commands_data:
             button:
                 style: link
                 id: https://discord.com/channels/1126475444837949500/1201210773532332073
-                label: 📩 Open a ticket
+                label: Open a ticket
+                # emoji: ElementTag
+        akygcash:
+            trigger:
+            - !akygcash
+            embed:
+                title: Personal akiakyo's GCash
+                #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
+                # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
+                color: orange
+                # description: "> Incase the Magbungkal.net's GCash is not available,<n>> kindly use this for now"
+                # footer: ElementTag
+                # footer_icon: ElementTag of a URL (requires footer set)
+                image: https://media.discordapp.net/attachments/1230100405950611487/1297254383158951988/IMG_2182.png?ex=671541ca&is=6713f04a&hm=e031227851bd36c45d1971146ece887c34bf1d262fb1f8d12ad1cf28d02c6774&=&format=webp&quality=lossless&width=384&height=670
+                # timestamp: TimeTag
+                #title: Minecraft server's IP Address
+                # title_url: ElementTag of a URL (requires title set)
+            button:
+                style: primary
+                id: 09627915059
+                label: Mobile No. 09627915059
+                disabled: true
                 # emoji: ElementTag
         benefactors:
             trigger:
@@ -139,7 +160,7 @@ discord_commands_data:
             button:
                 style: link
                 id: https://discord.com/channels/1126475444837949500/1201210773532332073
-                label: 📩 Open a ticket
+                label: Open a ticket
                 # emoji: ElementTag
         vote:
             trigger:
@@ -151,7 +172,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: If you are using Bedrock Edition, please add <&quo>_<&quo> before your username. (_Tot4lly)<n><n>> Per vote, we offer 2 coins, ₱1,500 and x1 of Vote Key<n><n>➥ [best-minecraft-servers.co](https://best-minecraft-servers.co/server-magbungkal-community.18178)<n>➥ [minecraftservers.org](https://minecraftservers.org/server/653325)<n>➥ [topminecraftservers.org](https://topminecraftservers.org/vote/34432)<n>➥ [servers-minecraft.net](https://servers-minecraft.net/server-magbungkal-network.25640)<n>➥ [topg.org](https://topg.org/minecraft-servers/server-655955)<n>➥ [minecraft-mp.com](https://minecraft-mp.com/server-s322307)<n>➥ [minecraftlist.org](https://minecraftlist.org/server/32012)<n>➥ [minecraft.buzz](https://minecraft.buzz/server/8622)<n>➥ [minecraft-server.net](https://minecraft-server.net/vote/Magbungkal/)<n>➥ [minecraft-server-list.com](https://minecraft-server-list.com/server/502409/)<n><n>> If you having problems with one of our voting links please consider creating a ticket and contact us.
+                description: If you are using Bedrock Edition, please add **_** before your username. (_Tot4lly)<n><n>> Per vote, we offer 2 coins, ₱1,500 and x1 of Vote Key<n><n>➥ [best-minecraft-servers.co](https://best-minecraft-servers.co/server-magbungkal-community.18178)<n>➥ [minecraftservers.org](https://minecraftservers.org/server/653325)<n>➥ [topminecraftservers.org](https://topminecraftservers.org/vote/34432)<n>➥ [servers-minecraft.net](https://servers-minecraft.net/server-magbungkal-network.25640)<n>➥ [topg.org](https://topg.org/minecraft-servers/server-655955)<n>➥ [minecraft-mp.com](https://minecraft-mp.com/server-s322307)<n>➥ [minecraftlist.org](https://minecraftlist.org/server/32012)<n>➥ [minecraft.buzz](https://minecraft.buzz/server/8622)<n>➥ [minecraft-server.net](https://minecraft-server.net/vote/Magbungkal/)<n>➥ [minecraft-server-list.com](https://minecraft-server-list.com/server/502409/)<n><n>> If you having problems with one of our voting links please consider creating a ticket and contact us.
                 # footer: ElementTag
                 # footer_icon: ElementTag of a URL (requires footer set)
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222518408105558178/28.png?ex=661681fd&is=66040cfd&hm=1056d449c9ab290b7e341ba2257d535298ced246b484ed94d7513f8f5eb8d9f3&=&format=webp&quality=lossless
@@ -206,7 +227,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: **❔ Magbungkal Discord Commands**<n>• `!help` - Here you are!<n>• `!rules` - Be aware of our server rules!<n>• `!link` - Link your minecraft account to Magbungkal discord.<n>• `!support` - Ask for assistance/support.<n>• `!gcash` - Donate with GCash?<n>• `!ip`,`!server` - Magbungkal's IP address.<n>• `!bedrockip`, `!bedrock` - Magbungkal Bedrock/Geyser's IP address.<n>• `!store` - Donate our server.<n>• `!docs` - Magbungkal documentations.
+                description: **❔ Magbungkal Discord Commands**<n>• `!help` - Here you are!<n>• `!rules` - Be aware of our server rules!<n>• `!link` - Link your minecraft account to Magbungkal discord.<n>• `!support` - Ask for assistance/support.<n>• `!gcash` - Donate with GCash?<n>• `!ip`,`!server` - Magbungkal's IP address.<n>• `!bedrockip`, `!bedrock` - Magbungkal Bedrock/Geyser's IP address.<n>• `!store` - Donate our server.<n>• `!docs` - Magbungkal documentations.<n>• `!randombuildidea` - Generate random build ideas.• `!tryandsee` - Try and see!
                 footer: Magbungkal - play.magbungkal.net
                 footer_icon: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 # image:
@@ -524,7 +545,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: AFK  stands for <&quo>Away From Keyboard.<&quo> It indicates that a player is currently inactive or not engaged in the game. This could be due to various reasons, such as taking a break, attending to real-life tasks, or being idle. Typically, AFK players are not moving or interacting with the game world. Being AFK simply means that a player is temporarily inactive in the game, and they may return to play at any time.
+                description: AFK  stands for **Away From Keyboard.** It indicates that a player is currently inactive or not engaged in the game. This could be due to various reasons, such as taking a break, attending to real-life tasks, or being idle. Typically, AFK players are not moving or interacting with the game world. Being AFK simply means that a player is temporarily inactive in the game, and they may return to play at any time.
                 # footer: ElementTag
                 # footer_icon: ElementTag of a URL (requires footer set)
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222518353562964048/10.png?ex=661681f0&is=66040cf0&hm=eebd9626f84817371c28a6b03ecfa1c1163cab148f6aed3544b0540542b17900&=&format=webp&quality=lossless
@@ -582,7 +603,7 @@ discord_commands_data:
         #     button:
         #         style: link
         #         id: https://discord.com/channels/1126475444837949500/1201210773532332073
-        #         label: 📩 Use ticket instead
+        #         label: Use ticket instead
         #         #emoji: 1146697542046859294
         jobs:
             trigger:
@@ -699,7 +720,7 @@ discord_commands_data:
             button:
                 style: link
                 id: https://discord.com/channels/1126475444837949500/1201210773532332073
-                label: 📩 Apply for Content Creator
+                label: Apply for Content Creator
                 #emoji: 1146697542046859294
         Logo:
             trigger:
@@ -728,7 +749,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: <&quo>If you boost our Discord server, you'll receive the following as a token of appreciation:<n><n>- Per boost: 1500 coins, ₱500,000.00 and 32 Vote Keys<n>- Exclusive Discord Role: Gain a special @Booster role<&quo>
+                description: **If you boost our Discord server, you'll receive the following as a token of appreciation:<n><n>- Per boost: 1500 coins, ₱500,000.00 and 32 Vote Keys<n>- Exclusive Discord Role: Gain a special @Booster role**
                 # footer: ElementTag
                 # footer_icon: ElementTag of a URL (requires footer set)
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222518442079551518/38.png?ex=66168205&is=66040d05&hm=24928c468e64ce620dd05d70a78c15aec932f5bf4536950a4491c170212e2449&=&format=webp&quality=lossless
@@ -739,7 +760,7 @@ discord_commands_data:
             button:
                 style: link
                 id: https://discord.com/channels/1126475444837949500/1201210773532332073
-                label: 📩 Claim your booster perks!
+                label: Claim your booster perks!
                 #emoji: 1146697542046859294
         Status:
             trigger:
@@ -760,7 +781,7 @@ discord_commands_data:
             button:
                 style: link
                 id: https://discord.com/channels/1126475444837949500/1201210773532332073
-                label: 📩 Claim your rewards
+                label: Claim your rewards
                 #emoji: 1146697542046859294
         Blackmarket:
             trigger:
@@ -781,7 +802,7 @@ discord_commands_data:
             # button:
             #     style: link
             #     id: https://discord.com/channels/1126475444837949500/1201210773532332073
-            #     label: 📩 Claim your rewards
+            #     label: Claim your rewards
             #     emoji: 1146697542046859294
         VPN:
             trigger:
@@ -872,6 +893,7 @@ discord_commands_data:
         Tryandsee:
             trigger:
             - !tryandsee
+            - !try
             embed:
                 # title:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
@@ -898,8 +920,8 @@ discord_commands_data:
                 description: If you're having problems or are concerned that the resource pack won't load, please download our resource pack instead.<n><n>Kindly click the button below to start downloading the resource pack.
             button:
                 style: link
-                id: http://atlas.oraxen.com:8080/pack.zip?id=e0907d379a610a1570f258336815cb8d654efc19
-                label: 📎 Magbungkal resource pack
+                id: http://atlas.oraxen.com:8080/pack.zip?id=43876c4a7eb8c5eb184db60690b66b92925d1047
+                label: Click to download
         refferer:
             trigger:
             - !refer
@@ -928,6 +950,13 @@ discord_commands_data:
                 description: **❔ Magbungkal Rules**<n>• `!article1.1`, `!ping`<n>• `!article1.2`, `!channel`<n>• `!article1.3`<n>• `!article1.4`<n>• `!article1.5`<n>• `!article2.1`, `!da`<n>• `!article2.2`, `!flood`, `!spam`<n>• `!article2.3`, `!slur`<n>• `!article2.4`, `!spoilers`<n>• `!article2.5`<n>• `!article2.6`, `!discrimination`<n>• `!article2.7`, `!disrespecting`<n>• `!article2.8`, `!doxxing`<n>• `!article2.9`<n>• `!article2.10`, `!commonsense`<n>• `!article2.11`, `!evading`<n>• `!article2.12`, `!scam`, `!scamming`<n>• `!article2.13`, `!unsafelinks`<n>• `!article2.14`, `!chatfilter`<n>• `!article2.15`<n>• `!article2.16`, `!impersonation`<n>• `!article2.17`, `!troll`, `!baiting`<n>• `!article2.18`, `!minimod`<n>• `!article2.19`, `!pda`<n>• `!article3.1`, `!tpkill`<n>• `!article3.2`<n>• `!article3.3`, `!lagmachines`<n>• `!article3.4`, `!griefing`<n>• `!article3.5`, `!dupe`, `!duping`<n>• `!article3.6`<n>• `!article3.7`, `!cheats`, `!hacks`<n>• `!article3.8`, `!staffabuse`<n>• `article3.9`<n>• `article3.10`, `!bug`, `!glitch`<n>• `!article3.11`, `!exploit`<n>• `!article3.12`, `!pvp`<n>• `!article3.13`, `!begging`<n>• `!article3.14`<n>• `!article2.15`<n>• `!article3.16`, `!itemlisting`, `!ah`<n>• `!article3.17`, `!fakeitems`<n>• `article3.18`<n>• `!article3.19`, `!alts`, `altaccount`<n>• `!article3.20`<n>
                 footer: Magbungkal - play.magbungkal.net
                 footer_icon: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
+        marry:
+            trigger:
+            - !marry
+            embed:
+                title: Marry
+                color: orange
+                description: "Our server, Magbungkal, offers a special feature for couple players called Marry. This feature provides exclusive perks beyond simply being recognized as married. Below is a list of the commands/perks available to married players: • `/marry chat [message]` or `/marry chattoggle` - This feature allows you and your partner to have a private chat channel, separate from the main server chat, for easy communication between the two of you.<n>• `/marry tp` - Instantly teleport to your partner without any cooldown. This makes it easy to meet up quickly, no matter where they are in the game.<n>• `/marry sethome` - Set a shared home location for both of you, making it easier to return to a special place you both choose.<n>• `/marry home` - Teleport to the home you set together using /marry sethome. No need to use separate home commands!<n>• `/marry pvp on/off` - Toggle PvP between you and your partner. Whether you want to challenge each other or turn it off for safety, - this command allows you to switch at any time.<n>• `/marry kiss/hug` - Send a kiss or hug to your partner with this cute feature, adding a bit of romance or fun to your interactions.<n>• `/marry gift` - Instantly gift the item in your hand to your partner. Perfect for surprise presents or sharing valuable resources.<n>• `/marry seen` - Check the last time your partner was online, so you'll know when they were last active on the server.<n><n>So, how do you get married?<n>> Simply reach out to one of the server priests, and they can officiate your in-game marriage. You can contact any of the head admins to arrange your wedding ceremony and get started on enjoying all the perks!"
 # Articles
         article1.1:
             trigger:
@@ -999,7 +1028,7 @@ discord_commands_data:
                 title: Article 2.3: Slur Baiting
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: Don't make jokes about using offensive words, such as saying, <&quo>I'm going to say the N-word<&quo> and then not actually saying it. Even if you don't use the word, this kind of behavior is still harmful. It can make people uncomfortable and cause arguments. Let's keep the community respectful for everyone.<n><n>⚠️ Note: If you break this rule, youll first get a warning. If you keep doing it, you might be muted and or jailed, and if it continues, more serious punishments will follow.
+                description: Don't make jokes about using offensive words, such as saying, **I'm going to say the N-word** and then not actually saying it. Even if you don't use the word, this kind of behavior is still harmful. It can make people uncomfortable and cause arguments. Let's keep the community respectful for everyone.<n><n>⚠️ Note: If you break this rule, youll first get a warning. If you keep doing it, you might be muted and or jailed, and if it continues, more serious punishments will follow.
         article2.4:
             trigger:
             - !article2.4
