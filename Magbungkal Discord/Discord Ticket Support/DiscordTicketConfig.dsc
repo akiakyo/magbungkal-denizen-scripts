@@ -61,6 +61,10 @@ discord_ticket_config:
         ticket-ready:
             title: Ticket has been generated, head over to <[created_channel].mention>
             color: orange
+        higherups:
+            title: Higher-ups will come shortly!
+            description: Requested by <[user].mention>
+            color: orange
 
     buttons:
         open_ticket:
@@ -81,6 +85,10 @@ discord_ticket_config:
            style: secondary
            id: discord_ticket_close
            label: 🔒 Close
+        ticket_higherups_button:
+           style: secondary
+           id: discord_ticket_higherups
+           label: ⛑️ Need higher-ups
 
     modal:
         ign:
@@ -95,10 +103,3 @@ discord_ticket_config:
             label: Describe your concern
             is_required: true
             style: paragraph
-        date_and_time:
-            id: date_and_time
-            label: Date
-            is_required: false
-            # min_length: 8
-            # max_length: 8
-            style: short
