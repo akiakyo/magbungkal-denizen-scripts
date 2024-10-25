@@ -220,14 +220,13 @@ discord_commands_data:
             - !help
             - !?
             - !magbungkal
-            - !commands
             - !cmd
             embed:
                 title: Magbungkal Help
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: **❔ Magbungkal Discord Commands**<n>• `!help` - Here you are!<n>• `!rules` - Be aware of our server rules!<n>• `!link` - Link your minecraft account to Magbungkal discord.<n>• `!support` - Ask for assistance/support.<n>• `!gcash` - Donate with GCash?<n>• `!ip`,`!server` - Magbungkal's IP address.<n>• `!bedrockip`, `!bedrock` - Magbungkal Bedrock/Geyser's IP address.<n>• `!store` - Donate our server.<n>• `!docs` - Magbungkal documentations.<n>• `!randombuildidea` - Generate random build ideas.• `!tryandsee` - Try and see!
+                description: **❔ Magbungkal Discord Commands**<n>• `!help` - Here you are!<n>• `!rules` - Be aware of our server rules!<n>• `!link` - Link your minecraft account to Magbungkal discord.<n>• `!support` - Ask for assistance/support.<n>• `!gcash` - Donate with GCash?<n>• `!ip`,`!server` - Magbungkal's IP address.<n>• `!bedrockip`, `!bedrock` - Magbungkal Bedrock/Geyser's IP address.<n>• `!store` - Donate our server.<n>• `!docs` - Magbungkal documentations.<n>• `!randombuildidea` - Generate random build ideas.<n>• `!tryandsee` - Try and see!
                 footer: Magbungkal - play.magbungkal.net
                 footer_icon: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 # image:
@@ -244,7 +243,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: **❔ Magbungkal Docs Commands**<n>• `!afk`<n>• `!ranks`, `!rank`, `!whatisranks`<n>• `!premiumranks`, `!whatispremiumranks`<n>• `!coins`, `!virtualcurrency`<n>• `!rankup`<n>• `!crates`<n>• `!pinataparty`, `!pinata`<n>• `!dailyrewards`<n>• `!kitscombiner`<n>• `!battlepass`<n>• `!chatgames`<n>• `!monthlycrate`<n>• `!customrank`<n>• `!rtp`, `!wild`<n>• `!bugreport`<n>• `!guard`<n>• `!supporthours`<n>• `!benefactors`<n>• `!gcash`<n>• `!vote`<n>• `!myuuid`<n>• `!link`<n>• `!jobs`<n>• `!contentcreator`<n>• `!magbungkal`, `!logo`<n>• `!vc`, `!voicechat`<n>• `!customenchantment`, `!ce`<n>• `!keytrader`<n>• `!booster`, `!boost`, `!serverboost`<n>• `!statusevent`<n>• `!bm`, `!blackmarket`<n>• `!vpn`, `!pldt`<n>• `!seasonal`, `!season`<n>• `!killfinishers`, `!finishers`<n>• `!crash`, `!servercrash`
+                description: **❔ Magbungkal Docs Commands**<n>• `!afk`<n>• `!ranks`, `!rank`, `!whatisranks`<n>• `!premiumranks`, `!whatispremiumranks`<n>• `!coins`, `!virtualcurrency`<n>• `!rankup`<n>• `!crates`<n>• `!pinataparty`, `!pinata`<n>• `!dailyrewards`<n>• `!kitscombiner`<n>• `!battlepass`<n>• `!chatgames`<n>• `!monthlycrate`<n>• `!customrank`<n>• `!rtp`, `!wild`<n>• `!bugreport`<n>• `!guard`<n>• `!supporthours`<n>• `!benefactors`<n>• `!gcash`<n>• `!vote`<n>• `!myuuid`<n>• `!link`<n>• `!jobs`<n>• `!contentcreator`<n>• `!magbungkal`, `!logo`<n>• `!vc`, `!voicechat`<n>• `!customenchantment`, `!ce`<n>• `!keytrader`<n>• `!booster`, `!boost`, `!serverboost`<n>• `!statusevent`<n>• `!bm`, `!blackmarket`<n>• `!vpn`, `!pldt`<n>• `!seasonal`, `!season`<n>• `!killfinishers`, `!finishers`<n>• `!crash`, `!servercrash`<n>• `!playercommands`<n>• `!guides`, `!playerguides`<n>• `!offtopic`, `!unrelated`<n>• `!botspam`, `!spam`<n>• `!marry`
                 footer: Magbungkal - play.magbungkal.net
                 footer_icon: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222526520937939056/52.png?ex=6616898c&is=6604148c&hm=af467cf86b01445a48cc6b5b2bf6004a01297bf56334f3f1b0e07b11c34d0178&=&format=webp&quality=lossless
@@ -705,11 +704,11 @@ discord_commands_data:
             - !streamer
             - !youtuber
             embed:
-                title: Applying for Content Creator? (CC)
+                title: Be one of our Content Creators!
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: **Magbungkal Content Crator Program**<n>Stream our server and earn coins up to 500 - 3000 per month.<n><n>**Application Requirements**<n>- Stream/Publish 3 - 5 contents advertising Magbungkal per week on any platforms (e.g Youtube, TikTok, Twitch, or Facebook and must including our server IP `play.magbungkal.net`)<n>- 3 Days of Playtime<n>- Copper II Rank and above.<n><n>**Perks**<n>- Exclusive [STREAMER] Rank In-Game and <@1141021085605838888> Role on Discord.<n>- Exclusive Content Creator kit<n>- Exclusive commands and permissions for your contents!<n>Monthly 30% Discount off on https://store.magbungkal.net/<n><n>If you did like to apply for Content Creator, please open a ticket.
+                description: **Magbungkal Content Crator Program**<n>Stream our server and earn coins up to 500 - 3000 per week.<n><n>**Perks**<n>- Exclusive **[STREAMER]** Rank In-Game and **<discord_role[magbungkal,1126475444837949500,1141021085605838888].mention>** Role on Discord.<n>- Exclusive Content Creator kit<n>- Exclusive commands and permissions for your contents!<n>   - `/fly`<n>   - `/playerparticles`<n>   - `/eglow`<n>   - `/heads`<n><n>If you did like to apply for Content Creator, please open a ticket.
                 # footer: ElementTag
                 # footer_icon: ElementTag of a URL (requires footer set)
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222518440552829049/33.png?ex=66168205&is=66040d05&hm=4ad0571d9554b76a955e278f14bd9cc8803549ea656d901a3f3633840583be2b&=&format=webp&quality=lossless
@@ -957,6 +956,39 @@ discord_commands_data:
                 title: Marry
                 color: orange
                 description: "Our server, Magbungkal, offers a special feature for couple players called Marry. This feature provides exclusive perks beyond simply being recognized as married. Below is a list of the commands/perks available to married players: • `/marry chat [message]` or `/marry chattoggle` - This feature allows you and your partner to have a private chat channel, separate from the main server chat, for easy communication between the two of you.<n>• `/marry tp` - Instantly teleport to your partner without any cooldown. This makes it easy to meet up quickly, no matter where they are in the game.<n>• `/marry sethome` - Set a shared home location for both of you, making it easier to return to a special place you both choose.<n>• `/marry home` - Teleport to the home you set together using /marry sethome. No need to use separate home commands!<n>• `/marry pvp on/off` - Toggle PvP between you and your partner. Whether you want to challenge each other or turn it off for safety, - this command allows you to switch at any time.<n>• `/marry kiss/hug` - Send a kiss or hug to your partner with this cute feature, adding a bit of romance or fun to your interactions.<n>• `/marry gift` - Instantly gift the item in your hand to your partner. Perfect for surprise presents or sharing valuable resources.<n>• `/marry seen` - Check the last time your partner was online, so you'll know when they were last active on the server.<n><n>So, how do you get married?<n>> Simply reach out to one of the server priests, and they can officiate your in-game marriage. You can contact any of the head admins to arrange your wedding ceremony and get started on enjoying all the perks!"
+        playerguides:
+            trigger:
+            - !guides
+            - !playerguides
+            embed:
+                title: Player Guides
+                color: orange
+                description: We have a channel specifically dedicated to guiding players - https://discord.com/channels/1126475444837949500/1239540808105988126<n><n>In this channel, you can find helpful guides created by the staff or community members to assist you in navigating various aspects of the game.<n><n>You're also welcome to contribute your own guides or tips that might help other players improve their in-game experience. Just be sure to post only content that’s appropriate and relevant to the game.
+        playercommands:
+            trigger:
+            - !commands
+            - !pcommands
+            - !basiccommands
+            embed:
+                title: Player Basic Commands
+                color: orange
+                description: Player commands are a set of in-game instructions that allow players to perform specific actions or access various features on the server.<n>> These commands are entered into the chat and can range from basic utilities to advanced functions.<n><n>Here are some of Common Player Commands:<n>- `/spawn` - teleports you to the server's spawn point.<n>- `/rtp` - teleports you to a random location in the overworld, resourceworld, or the nether.<n>- `/home` - teleports you to your set home location.<n>- `/tpa [playerName]` - sends a request to teleport to another player.<n>- `/tpaccept` or `/tpyes` - accepts a pending teleport request from another player.<n>- `/balance` - displays your current in-game currency balance.<n>- `/sethome` - sets a personal home location for easy teleportation later.<n>- `/msg [playerName] [message]` - sends a private message to another player.<n>- `/reply` [message] - quicly responds to the most recent private message.<n><n>These commands are designed to make your gameplay more convenient and efficient, allowing you to quickly manage tasks like teleportation, communication, or accessing server features.
+        offtopic:
+            trigger:
+            - !offtopic
+            - !unrelated
+            embed:
+                title: Off Topic - Unrelated
+                color: orange
+                description: Unrelated discussions goes only on https://discord.com/channels/1126475444837949500/1185837691858849802 - You can post there a meme from social medias, or other games that not related to minecraft.
+        botspam:
+            trigger:
+            - !botspam
+            - !spam
+            embed:
+                title: Bot Spam Channel
+                color: orange
+                description: A channel that falls under the suggestions category is one where bot commands are sent out to the server.<n><n>It was intended to prevent bot commands from command spamming in channels they shouldn't be in and to give them their own channel.<n><n>You can use do `!help` to search for commands or type `/` to find a command you want to use.<n><n>Bot Spam Channel - https://discord.com/channels/1126475444837949500/1142368712461135963
 # Articles
         article1.1:
             trigger:
