@@ -204,7 +204,7 @@ discord_ticket_events_handler:
         - define group <script[discord_ticket_config].data_key[group-id]>
         - define ticket_channel_category <script[discord_ticket_config].data_key[ticket-channel-category]>
         - define ticket_helper_role <script[discord_ticket_config].data_key[ticket-helper-role]>
-        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[user].name> users:<[user].name> roles:<list[<[ticket_helper_role]>]> category:<[ticket_channel_category]> save:created_channel
+        - ~discordcreatechannel id:magbungkal group:<[group]> name:<[user].name> users:<[user]> roles:<list[<[ticket_helper_role]>]> category:<[ticket_channel_category]> save:created_channel
 
         # generate the initial message for the ticket
         - define created_channel <entry[created_channel].channel>
