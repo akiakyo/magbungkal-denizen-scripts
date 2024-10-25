@@ -65,6 +65,34 @@ discord_ticket_config:
             title: Higher-ups will come shortly!
             description: Requested by <[user].mention>
             color: orange
+        rating:
+            title: Rate for how was your ticket handled!
+            description: Your ticket was handled by <[channel].flag[ticket_claimer_name].if_null[**No one claimed this ticket yet**]>
+            color: orange
+        rating-success:
+            title: Success
+            description: Your feedback for <[channel].flag[ticket_claimer_name]> has been recorded!
+            color: lime
+        rating-recorded-1:
+            title: <[channel].flag[ticket_claimer].name> has recieved a feedback!
+            description: Feedback by: <[user].mention><n>Rate: ⭐ 1 Star
+            color: lime
+        rating-recorded-2:
+            title: <[channel].flag[ticket_claimer].name> has recieved a feedback!
+            description: Feedback by: <[user].mention><n>Rate: ⭐ 2 Star
+            color: lime
+        rating-recorded-3:
+            title: <[channel].flag[ticket_claimer].name> has recieved a feedback!
+            description: Feedback by: <[user].mention><n>Rate: ⭐ 3 Star
+            color: lime
+        rating-recorded-4:
+            title: <[channel].flag[ticket_claimer].name> has recieved a feedback!
+            description: Feedback by: <[user].mention><n>Rate: ⭐ 4 Star
+            color: lime
+        rating-recorded-5:
+            title: <[channel].flag[ticket_claimer].name> has recieved a feedback!
+            description: Feedback by: <[user].mention><n>Rate: ⭐ 5 Star
+            color: lime
 
     buttons:
         open_ticket:
@@ -89,7 +117,10 @@ discord_ticket_config:
            style: secondary
            id: discord_ticket_higherups
            label: ⛑️ Need higher-ups
-
+        ticket_rating_button:
+           style: secondary
+           id: discord_ticket_rating
+           label: ⭐ Rate
     modal:
         ign:
             id: ign
