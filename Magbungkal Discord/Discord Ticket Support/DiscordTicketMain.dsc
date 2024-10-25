@@ -150,6 +150,8 @@ discord_ticket_events_handler:
             - define ticket-claim <discord_embed.with_map[<[ticket-claim.message]>]>
             - ~discordinteraction defer interaction:<[interaction]> ephemeral:false
             - discordinteraction reply interaction:<[interaction]> <[ticket-claim]>
+            - flag <[channel]> ticket_claimer:<[user]>
+            - flag <[channel]> ticket_claimer_name:<[user].mention>
 
         - if <[button].map.get[id]> == discord_ticket_claim && !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
             - define no-permission.message <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
@@ -173,6 +175,46 @@ discord_ticket_events_handler:
             - ~discordinteraction defer interaction:<[interaction]> ephemeral:true
             - discordinteraction reply interaction:<[interaction]> <[no-permission]>
 
+        - if <[button].map.get[id]> == discord_ticket_rating && <[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+
+            - definemap options:
+                1:
+                  label: 1 Star
+                  value: one_star
+                  description: Rate how was your ticket handled!
+                  emoji: ⭐
+                2:
+                  label: 2 Star
+                  value: two_star
+                  description: Rate how was your ticket handled!
+                  emoji: ⭐
+                3:
+                  label: 3 Star
+                  value: three_star
+                  description: Rate how was your ticket handled!
+                  emoji: ⭐
+                4:
+                  label: 4 Star
+                  value: four_star
+                  description: Rate how was your ticket handled!
+                  emoji: ⭐
+                5:
+                  label: 5 Star
+                  value: five_star
+                  description: Rate how was your ticket handled!
+                  emoji: ⭐
+
+            - define message <script[discord_ticket_config].parsed_key[messages].get[rating]>
+            - define embed <discord_embed.with_map[<[message]>]>
+            - define rating <discord_selection.with[id].as[rating_selection].with[options].as[<[options]>]>
+            - ~discordinteraction reply interaction:<[interaction]> rows:<[rating]> <[embed]>
+
+        - if <[button].map.get[id]> == discord_ticket_rating && !<[user].roles[<[group]>].parse[id].contains[<[ticket_helper_role]>]>:
+            - define no-permission.message <script[discord_ticket_config].parsed_key[messages].get[no-permission]>
+            - define no-permission <discord_embed.with_map[<[no-permission.message]>]>
+            - ~discordinteraction defer interaction:<[interaction]> ephemeral:true
+            - discordinteraction reply interaction:<[interaction]> <[no-permission]>
+
         after discord modal submitted name:close_modal for:magbungkal:
         - define name <context.name>
         - define value <context.values>
@@ -185,6 +227,57 @@ discord_ticket_events_handler:
         - flag <[channel]> ticket_closer_reason:<context.values.get[closemodal]>
         - inject discord_ticket_close
 
+        on discord selection used id:rating_selection:
+        - define name <context.name>
+        - define value <context.values>
+        - define interaction <context.interaction>
+        - define channel <context.channel>
+        - define user <context.interaction.user>
+        - ~discordinteraction defer interaction:<[interaction]> ephemeral:true
+
+        - choose <context.option.get[value]>:
+           - case one_star:
+              - define sucess_message <script[discord_ticket_config].parsed_key[messages].get[rating-success]>
+              - define embed <discord_embed.with_map[<[sucess_message]>]>
+              - define message <[embed]>
+              # send to staff discord
+              - define recorded-1 <script[discord_ticket_config].parsed_key[messages].get[rating-recorded-1]>
+              - define recorded-1.embed <discord_embed.with_map[<[recorded-1]>]>
+              - discordmessage id:magbungkal channel:1299450783674405006 <[recorded-1.embed]>
+           - case two_star:
+              - define sucess_message <script[discord_ticket_config].parsed_key[messages].get[rating-success]>
+              - define embed <discord_embed.with_map[<[sucess_message]>]>
+              - define message <[embed]>
+              # send to staff discord
+              - define recorded-2 <script[discord_ticket_config].parsed_key[messages].get[rating-recorded-2]>
+              - define recorded-2.embed <discord_embed.with_map[<[recorded-2]>]>
+              - discordmessage id:magbungkal channel:1299450783674405006 <[recorded-2.embed]>
+           - case three_star:
+              - define sucess_message <script[discord_ticket_config].parsed_key[messages].get[rating-success]>
+              - define embed <discord_embed.with_map[<[sucess_message]>]>
+              - define message <[embed]>
+              # send to staff discord
+              - define recorded-3 <script[discord_ticket_config].parsed_key[messages].get[rating-recorded-3]>
+              - define recorded-3.embed <discord_embed.with_map[<[recorded-3]>]>
+              - discordmessage id:magbungkal channel:1299450783674405006 <[recorded-3.embed]>
+           - case four_star:
+              - define sucess_message <script[discord_ticket_config].parsed_key[messages].get[rating-success]>
+              - define embed <discord_embed.with_map[<[sucess_message]>]>
+              - define message <[embed]>
+              # send to staff discord
+              - define recorded-4 <script[discord_ticket_config].parsed_key[messages].get[rating-recorded-4]>
+              - define recorded-4.embed <discord_embed.with_map[<[recorded-4]>]>
+              - discordmessage id:magbungkal channel:1299450783674405006 <[recorded-4.embed]>
+           - case three_star:
+              - define sucess_message <script[discord_ticket_config].parsed_key[messages].get[rating-success]>
+              - define embed <discord_embed.with_map[<[sucess_message]>]>
+              - define message <[embed]>
+              # send to staff discord
+              - define recorded-5 <script[discord_ticket_config].parsed_key[messages].get[rating-recorded-5]>
+              - define recorded-5.embed <discord_embed.with_map[<[recorded-5]>]>
+              - discordmessage id:magbungkal channel:1299450783674405006 <[recorded-5.embed]>
+
+        - ~discordinteraction reply interaction:<[interaction]> <[message]>
         #
         # generates the ticket channel
         #
@@ -234,6 +327,7 @@ discord_ticket_events_handler:
                 1: <script[discord_ticket_config].parsed_key[buttons].get[ticket_claim_button]>
                 2: <script[discord_ticket_config].parsed_key[buttons].get[ticket_close_button]>
                 3: <script[discord_ticket_config].parsed_key[buttons].get[ticket_higherups_button]>
+                4: <script[discord_ticket_config].parsed_key[buttons].get[ticket_rating_button]>
 
         # info message for the user
         - ~discordmessage id:magbungkal channel:<[created_channel]> rows:<[buttons]> embed:<[ticket_embed]> "<[staff_ping]> <[player_ping]>"
@@ -262,10 +356,11 @@ discord_ticket_close:
     - define reason "⚒️ **Reason**: <[channel].flag[ticket_closer_reason].if_null[None provided!]>"
     - define ticket_opener "📥 **Opened by**: <[ticket_creator].mention>"
     - define ticket_closer "📤 **Closed by**: <[channel].flag[ticket_closer_name]>"
+    - define ticket_claimer "🔐 **Claimed by**: <[channel].flag[ticket_claimer_name].if_null["-"]>"
     - define ticket_id "❔ **Ticket ID**: **`<[channel].flag[ticket_id].if_null["-"]>`**"
     - define open_time "📂 **Opened at**: <[channel].flag[ticket_creation_time]>"
     - define close_time "❕ **Closed on**: <util.time_now.to_zone[+8].format_discord>"
-    - define description <[reason]><&nl><[ticket_id]><&nl><[ticket_opener]><&sp>---<&sp><[open_time]><&nl><[ticket_closer]><&sp>---<&sp><[close_time]><&nl><&nl><[description]>
+    - define description <[reason]><&nl><[ticket_claimer]><&nl><[ticket_id]><&nl><[ticket_opener]><&sp>---<&sp><[open_time]><&nl><[ticket_closer]><&sp>---<&sp><[close_time]><&nl><&nl><[description]>
     - define transcript_msg <[transcript_msg].with[description].as[<[description]>]>
 
     - define transcript_msg <discord_embed.with_map[<[transcript_msg]>]>
