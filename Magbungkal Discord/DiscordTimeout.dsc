@@ -15,7 +15,7 @@ discord_timeout_config:
           title: Mute Notice
           color: orange
         format:
-          title: ❌ Correct format is !timeout [@user] [time] [reason]
+          title: ❌ Correct format is !mute [@user] [time] [reason]
           color: maroon
         default-reason: No reason provided
 
@@ -57,5 +57,5 @@ discord_timeout_command:
 
             - define reply <script[discord_timeout_config].data_key[messages].get[timeout]>
             - define reply.embed <discord_embed.with_map[<[reply]>]>
-            - define description "**User**: <[target].mention><&nl>**Duration**: <[time]><&nl>**Reason**: <[reason]>"
+            - define description "**User**: <[target].mention><&nl>**Duration**: <[time]><&nl>**Reason**: <[reason]><n>-# This mute was applied and requested by <[user].mention>."
             - ~discordmessage id:magbungkal reply:<[message]> <[reply.embed].with[description].as[<[description]>]>
