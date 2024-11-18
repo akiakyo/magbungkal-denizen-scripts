@@ -6,9 +6,9 @@ DiscordBoosterRewards:
       - define added.role <context.added_roles>
       - define user <context.user>
       - define user.nickname <[user].display_name>
-      - define booster.role <discord_role[magbungkal,1126475444837949500,1289797744709468223]>
+      - define booster.role <discord_role[magbungkal,1126475444837949500,1131182921915564032]>
       - define ign <[user.nickname].replace_text[ˋ].with[].replace_text[` ].with[]>
-      - if <[added.role].parse[id].contains[1289797744709468223]>:
+      - if <[added.role].parse[id].contains[1131182921915564032]>:
          - definemap magbungkal_booster_map:
              color: orange
              title: Thank you for boosting our server <server.match_offline_player[<[ign]>].name>!
@@ -21,3 +21,4 @@ DiscordBoosterRewards:
          - execute as_server "magbungkalcoins give <server.match_offline_player[<[ign]>].name> 1500"
          - execute as_server "money give <server.match_offline_player[<[ign]>].name> 500k"
          - execute as_server "crate key give <server.match_offline_player[<[ign]>].name> vote 32"
+         - execute as_server "lp user <server.match_offline_player[<[ign]>].name> permission set mcpets.wumpus"
