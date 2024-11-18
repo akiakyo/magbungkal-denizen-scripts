@@ -28,7 +28,7 @@ discord_console_command:
             - execute as_server <[command].replace_text[_].with[ ]>
 
             - define embed <script[discord_console_config].parsed_key[messages].get[success]>
-            - define success.message <discord_embed.with_map[<[embed]>].with[description].as[**Command:** `<[command].replace_text[_].with[ ]>`]>
+            - define success.message <discord_embed.with_map[<[embed]>].with[description].as[**Command:** **`<[command].replace_text[_].with[ ]>`**<n>**Executed by:** <[user].mention>]>
 
             - discordmessage id:magbungkal reply:<[message]> <[success.message]>
 
