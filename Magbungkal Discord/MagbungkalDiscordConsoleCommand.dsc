@@ -28,7 +28,13 @@ discord_console_command:
             - execute as_server <[command].replace_text[_].with[ ]>
 
             - define embed <script[discord_console_config].parsed_key[messages].get[success]>
-            # - define success.message <discord_embed.with_map[<[embed]>].with[description].as[<[command]>]>
             - define success.message <discord_embed.with_map[<[embed]>]>
 
             - discordmessage id:magbungkal reply:<[message]> <[success.message]>
+
+        - if <[text].starts_with[<[command]>]> && !<[user].roles[<[group]>].parse[id].contains[<[role]>]>:
+
+            - define embed <script[discord_console_config].parsed_key[messages].get[error]>
+            - define error.message <discord_embed.with_map[<[embed]>]>
+
+            - discordmessage id:magbungkal reply:<[message]> <[error.message]>
