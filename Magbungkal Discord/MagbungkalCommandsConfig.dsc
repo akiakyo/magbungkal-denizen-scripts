@@ -243,7 +243,7 @@ discord_commands_data:
                 #author_url: https://discord.com/channels/1126475444837949500/1201210773532332073/1201246771058323596
                 # author_icon_url: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 color: orange
-                description: **❔ Magbungkal Docs Commands**<n>• `!afk`<n>• `!ranks`, `!rank`, `!whatisranks`<n>• `!premiumranks`, `!whatispremiumranks`<n>• `!coins`, `!virtualcurrency`<n>• `!rankup`<n>• `!crates`<n>• `!pinataparty`, `!pinata`<n>• `!dailyrewards`<n>• `!kitscombiner`<n>• `!battlepass`<n>• `!chatgames`<n>• `!monthlycrate`<n>• `!customrank`<n>• `!rtp`, `!wild`<n>• `!bugreport`<n>• `!guard`<n>• `!supporthours`<n>• `!benefactors`<n>• `!gcash`<n>• `!vote`<n>• `!myuuid`<n>• `!link`<n>• `!jobs`<n>• `!contentcreator`<n>• `!magbungkal`, `!logo`<n>• `!vc`, `!voicechat`<n>• `!customenchantment`, `!ce`<n>• `!keytrader`<n>• `!booster`, `!boost`, `!serverboost`<n>• `!statusevent`<n>• `!bm`, `!blackmarket`<n>• `!vpn`, `!pldt`<n>• `!seasonal`, `!season`<n>• `!killfinishers`, `!finishers`<n>• `!crash`, `!servercrash`<n>• `!playercommands`<n>• `!guides`, `!playerguides`<n>• `!offtopic`, `!unrelated`<n>• `!botspam`, `!spam`<n>• `!marry`
+                description: **❔ Magbungkal Docs Commands**<n>• `!afk`<n>• `!ranks`, `!rank`, `!whatisranks`<n>• `!premiumranks`, `!whatispremiumranks`<n>• `!coins`, `!virtualcurrency`<n>• `!rankup`<n>• `!crates`<n>• `!pinataparty`, `!pinata`<n>• `!dailyrewards`<n>• `!kitscombiner`<n>• `!battlepass`<n>• `!chatgames`<n>• `!monthlycrate`<n>• `!customrank`<n>• `!rtp`, `!wild`<n>• `!bugreport`<n>• `!guard`<n>• `!supporthours`<n>• `!benefactors`<n>• `!gcash`<n>• `!vote`<n>• `!myuuid`<n>• `!link`<n>• `!jobs`<n>• `!contentcreator`<n>• `!magbungkal`, `!logo`<n>• `!vc`, `!voicechat`<n>• `!customenchantment`, `!ce`<n>• `!keytrader`<n>• `!booster`, `!boost`, `!serverboost`<n>• `!statusevent`<n>• `!bm`, `!blackmarket`<n>• `!vpn`, `!pldt`<n>• `!seasonal`, `!season`<n>• `!killfinishers`, `!finishers`<n>• `!crash`, `!servercrash`<n>• `!playercommands`<n>• `!guides`, `!playerguides`<n>• `!offtopic`, `!unrelated`<n>• `!botspam`, `!spam`<n>• `!marry`<n>• `!internal-ip`
                 footer: Magbungkal - play.magbungkal.net
                 footer_icon: https://media.discordapp.net/attachments/1144631328545972254/1235249617545728141/Magbungkal.png?ex=666719da&is=6665c85a&hm=dc1e81d6025a5453a220010f1702bd3657c39dcaeb44c58933063856c27e81fe&=&format=webp&quality=lossless&width=671&height=671
                 # image: https://media.discordapp.net/attachments/1222518252748410931/1222526520937939056/52.png?ex=6616898c&is=6604148c&hm=af467cf86b01445a48cc6b5b2bf6004a01297bf56334f3f1b0e07b11c34d0178&=&format=webp&quality=lossless
@@ -989,6 +989,14 @@ discord_commands_data:
                 title: Bot Spam Channel
                 color: orange
                 description: A channel that falls under the suggestions category is one where bot commands are sent out to the server.<n><n>It was intended to prevent bot commands from command spamming in channels they shouldn't be in and to give them their own channel.<n><n>You can use do `!help` to search for commands or type `/` to find a command you want to use.<n><n>Bot Spam Channel - https://discord.com/channels/1126475444837949500/1142368712461135963
+        internal-ip:
+            trigger:
+            - !internal-ip
+            embed:
+                title: Internal IP Address
+                color: orange
+                description: Having problem with our domain?<n>> Try this IP: **`45.59.168.91:25564`**
+                image: https://media.discordapp.net/attachments/1212849029667627028/1308392702362128434/image.png?ex=673dc729&is=673c75a9&hm=f490928be99f45a808d46284e2e738139f44a5b435af45f7f950727328ca4a4a&=&format=webp&quality=lossless
 # Articles
         article1.1:
             trigger:
